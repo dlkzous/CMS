@@ -3,15 +3,15 @@
 define("BASE_URL", realpath(dirname(__FILE__) . '/') . '/');
 
 //load system base files
-require(BASE_URL . 'system/load.php');
+require(BASE_URL . 'system/system.php');
 
 // run constructor functions
-construct();
+system_construct();
 
 // rerouting and bodywork
-dispatch();
+url_dispatch();
 
 // run destructor functions
-destruct();
+system_destruct();
 
 ?>

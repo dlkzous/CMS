@@ -1,23 +1,25 @@
 <?
 // Helpers or files to be loaded on all system pages
 
-function construct(){
-	load_init();
+function system_construct(){
+	system_init();
 	db_connect();
 }
 
-function destruct(){
+function system_destruct(){
 	db_disconnect();
 }
 
-function load_init(){
+function system_init(){
 	//load default configuration file
 	require(BASE_URL . 'system/config.php');
 
 	//load default system libraries
-	require(BASE_URL . 'system/libs/default.php');
-
-	//load database functions
+	//url redirector
+	require(BASE_URL . 'system/libs/url.php');
+	//file inluder
+	require(BASE_URL . 'system/libs/load.php');
+	//database viewer
 	require(BASE_URL . 'system/libs/database.php');
 
 	//load default system helper
@@ -25,5 +27,3 @@ function load_init(){
 }
 
 ?>
-
-
