@@ -2,7 +2,6 @@
 // define root directory
 define("BASE_URL", realpath(dirname(__FILE__) . '/') . '/');
 
-global $DB, $config;
 //load system base files
 require(BASE_URL . 'system/load.php');
 
