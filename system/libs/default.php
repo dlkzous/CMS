@@ -12,7 +12,7 @@ function dispatch()
 	dump($url);
 }
 
-function loadview(){
+function loadView(){
 }
 
 function loadModel(){
