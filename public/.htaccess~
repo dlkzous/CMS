@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+	AcceptPathInfo On
+	RewriteEngine On
+
+</IfModule>
