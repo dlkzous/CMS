@@ -12,4 +12,13 @@ function dispatch()
 	dump($url);
 }
 
+function loadview(){
+}
+
+function loadModel(){
+}
+
+function loadHelper(){
+}
+
 ?>
