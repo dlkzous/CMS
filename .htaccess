@@ -1,9 +1,5 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine on
-	RewriteRule    ^$    public/    [L]
-	RewriteRule    (.*) public/$1    [L]
-	
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^(.*)$ index.php?url=$1 [PT,L]
+    RewriteCond $1 !^(index\.php|static|uploads|favicon\.ico|robots\.txt)
+    RewriteRule ^(.*)$ index.php?url=$1 [L]
 </IfModule>
