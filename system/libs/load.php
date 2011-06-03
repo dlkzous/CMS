@@ -6,9 +6,10 @@ function load_view($view, $data = array()){
 		if(file_exists(BASE_URL."system/views/$template/".$view.".php"))
 		{
 			extract($data);
+			//require(BASE_URL."system/views/$template/header.php");
 			require(BASE_URL."system/views/$template/".$view.".php");
 		}else{
-			$error_message = "This page cannot be found on the server.";
+			$error_message = "The view for this page cannot be found on the server.";
 			require(BASE_URL."system/views/$template/error.php");
 		}
 	}else{
@@ -27,7 +28,15 @@ function load_helper($helper){
 }
 
 function load_controller($controller){
-	require(BASE_URL.'system/controllers/'.$controller.".php");
+	if(file_exists(BASE_URL.'system/controllers/'.$controller.".php")){
+		$_SESSION['controller_exists'] = "1";
+		require(BASE_URL.'system/controllers/'.$controller.".php");
+	}else{
+		$_SESSION['controller_exists'] = "0";
+		$error_message = "This page cannot be found on the server.";
+		$template = $_SESSION['template'];
+		require(BASE_URL."system/views/$template/error.php");
+	}
 }
 
 function model_exec($name, $func, $params = array()){

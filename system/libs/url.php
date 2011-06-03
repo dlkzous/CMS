@@ -35,17 +35,13 @@ function url_dispatch()
 		
 	}
 	
-	//load controller if it exists
-	if(file_exists($controller))
+	//load the respective controller into memory
+	load_controller($controller);
+	
+	if($_SESSION['controller_exists'] == "1")
 	{
-		//load the respective controller into memory
-		load_controller($controller);
 		//call the respective function in the controller and send parameters if any.
-		call_user_func_array($controller.'_'.$c_function, $params);	
-	}else{
-		$error_message = "This page cannot be found on the server.";
-		$template = $_SESSION['template'];
-		require(BASE_URL."system/views/$template/error.php");
+		call_user_func_array($controller.'_'.$c_function, $params);		
 	}
 }
 
