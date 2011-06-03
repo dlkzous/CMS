@@ -3,8 +3,14 @@
 function load_view($view, $data = array()){
 	$template = $_SESSION['template'];
 	if($template){
-		extract($data);
-		require(BASE_URL."system/views/$template/".$view.".php");
+		if(file_exists(BASE_URL."system/views/$template/".$view.".php"))
+		{
+			extract($data);
+			require(BASE_URL."system/views/$template/".$view.".php");
+		}else{
+			$error_message = "This page cannot be found on the server.";
+			require(BASE_URL."system/views/$template/error.php");
+		}
 	}else{
 		echo "<br>Unable to get template settings";
 		echo "<br>Please check cookie settings";

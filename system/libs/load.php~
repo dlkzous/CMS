@@ -3,10 +3,15 @@
 function load_view($view, $data = array()){
 	$template = $_SESSION['template'];
 	if($template){
-		foreach($data as $key => $value){
-			$$key = $value;
+		if(file_exists(BASE_URL."system/views/$template/".$view.".php"))
+		{
+			extract($data);
+			require(BASE_URL."system/views/$template/".$view.".php");
+		}else
+		{
+			$error_message = "This page cannot be found on the server.";
+			require(BASE_URL."system/views/$template/error.php");
 		}
-		require(BASE_URL."system/views/$template/".$view.".php");
 	}else{
 		echo "<br>Unable to get template settings";
 		echo "<br>Please check cookie settings";

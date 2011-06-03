@@ -39,9 +39,7 @@ function url_dispatch()
 	if(file_exists($controller))
 	{
 		//load the respective controller into memory
-		load_controller($controller);
-		//call the respective function in the controller and send parameters if any.
-		call_user_func_array($controller.'_'.$c_function, $params);	
+		load_controller($controller);	
 	}else{
 		$error_message = "This page cannot be found on the server.";
 		$template = $_SESSION['template'];
