@@ -160,7 +160,7 @@
 <div id="tabbed-widget-4" class="widget-area tabbed-widget"><div class="tw-tabs"><div id="tw-content-4-0" class="tw-content"><span style="display:none;">Local News</span><h4 id="tw-title-4-0" class="tw-title">Local News</h4>			<div class="textwidget"><div class="video">
 <a href="wp-content/themes/theme1273/video/video_AS3.swf?width=550&amp;height=400&amp;fileVideo=intro06.flv" rel="prettyPhoto" title="Video-1" class="preview1"><span class="play"></span>
 
-<img src="wp-content/themes/theme1273/images/video-preview1.jpg" />
+<img src="<?= IMAGE_PATH .'video-preview1.jpg' ?>" />
 
 </a>
 </div>
