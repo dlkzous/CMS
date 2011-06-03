@@ -62,9 +62,9 @@
 	<header id="header">
 		<div class="header-bg">
 			<div class="container">
-      	   <div class="logo">
-      	            	            	      <a href="http://livedemo00.template-help.com/wordpress_34098/"><img src="http://livedemo00.template-help.com/wordpress_34098/wp-content/themes/theme1273/images/temp/logo.png" alt="TV channel" title=""></a>
-      	            	      <p class="description"></p>
+      	   			<div class="logo">
+						<a href="<?= BASE_URL ?>"><img src="http://livedemo00.template-help.com/wordpress_34098/wp-content/themes/theme1273/images/temp/logo.png" alt="TV channel" title=""></a>
+						<p class="description"></p>
              </div>
 		   <nav class="primary">
 		      <ul id="topnav" class="sf-menu"><li id="menu-item-194" class="menu-item menu-item-type-custom current-menu-item current_page_item menu-item-home menu-item-194"><a href="http://livedemo00.template-help.com/wordpress_34098/">Home</a></li>

@@ -366,7 +366,7 @@ body{
 	position:relative;
 	z-index:999;
 }	
-	#header .header-bg {background:url(../../public/images/header-bg.jpg) no-repeat center top;} 
+	#header .header-bg {background:url(../public/images/header-bg.jpg) no-repeat center top;} 
 	#header .container { height:250px;}
 	
 
