@@ -7,16 +7,14 @@
 	<meta charset="UTF-8" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="index" title="TV channel" />
-  	<link rel="icon" href="<?= BASE_URL . 'public/images/favicon.ico' ?>" type="image/x-icon" />
-	<link rel="stylesheet" type="text/css" media="all" href="<?= BASE_URL. 'public/css/style.css' ?> " />
-  	<link rel="stylesheet" type="text/css" media="all" href="http://livedemo00.template-help.com/wordpress_34098/wp-content/themes/theme1273/css/prettyPhoto.css" />
-	<link rel="alternate" type="application/rss+xml" title="TV channel &raquo; Feed" href="http://livedemo00.template-help.com/wordpress_34098/?feed=rss2" />
-	<link rel="alternate" type="application/rss+xml" title="TV channel &raquo; Comments Feed" href="http://livedemo00.template-help.com/wordpress_34098/?feed=comments-rss2" />
-	<link rel='stylesheet' id='tabbed-widgets-css'  href='http://livedemo00.template-help.com/wordpress_34098/wp-content/plugins/tabbed-widgets/css/tabbed-widgets.css?ver=3.0.1' type='text/css' media='all' />
-	<link rel='stylesheet' id='contact-form-7-css'  href='http://livedemo00.template-help.com/wordpress_34098/wp-content/plugins/contact-form-7/styles.css?ver=2.4.3' type='text/css' media='all' />
-	<link rel='stylesheet' id='wp-pagenavi-css'  href='http://livedemo00.template-help.com/wordpress_34098/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70' type='text/css' media='all' />
-	<script type='text/javascript' src='http://livedemo00.template-help.com/wordpress_34098/wp-content/themes/theme1273/js/jquery-1.6.min.js?ver=1.6'></script>
-	<script type='text/javascript' src='http://livedemo00.template-help.com/wordpress_34098/wp-content/themes/theme1273/js/superfish.js?ver=1.4.8'></script>
+  	<link rel="icon" href="<?= IMAGE_PATH .'favicon.ico' ?>" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" media="all" href="<?= CSS_PATH .'style.css' ?> " />
+  	<link rel="stylesheet" type="text/css" media="all" href="<?= CSS_PATH .'prettyPhoto.css' ?>" />
+	<link rel='stylesheet' id='tabbed-widgets-css'  href="<?= CSS_PATH .'tabbed-widgets.css' ?>" type='text/css' media='all' />
+	<link rel='stylesheet' id='contact-form-7-css'  href="<?= CSS_PATH .'styles.css' ?>" type='text/css' media='all' />
+	<link rel='stylesheet' id='wp-pagenavi-css'  href="<?= CSS_PATH .'pagenavi-css.css' ?>" type='text/css' media='all' />
+	<script type='text/javascript' src="<?= JS_PATH. 'jquery-1.6.min.js' ?>"></script>
+	<script type='text/javascript' src="<?= JS_PATH .'superfish.js' ?>"></script>
 	<script type='text/javascript' src='http://livedemo00.template-help.com/wordpress_34098/wp-content/themes/theme1273/js/supersubs.js?ver=0.2b'></script>
 	<script type='text/javascript' src='http://livedemo00.template-help.com/wordpress_34098/wp-content/themes/theme1273/js/jquery.prettyPhoto.js?ver=3.0.3'></script>
 	<script type='text/javascript' src='http://livedemo00.template-help.com/wordpress_34098/wp-content/themes/theme1273/js/jquery.loader.js?ver=1.0'></script>

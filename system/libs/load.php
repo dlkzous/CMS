@@ -11,7 +11,7 @@ function load_view($view, $data = array(), $ajax = false){
 			}
 			require(LOCAL_DIR."system/views/$template/".$view.".php");
 			if(!$ajax){
-				require(LOCAL_DIR."system/views/$template/footer.php");
+				//require(LOCAL_DIR."system/views/$template/footer.php");
 			}
 		}else{
 			$error_message = "The view for this page cannot be found on the server.";
