@@ -8,10 +8,6 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="index" title="TV channel" />
   	<link rel="icon" href="<?= BASE_URL . 'public/images/favicon.ico' ?>" type="image/x-icon" />
-	<!-- The HTML5 Shim is required for older browsers, mainly older versions IE -->
-	<!--[if lt IE 9]>
-		<script src="<?= BASE_URL . 'public/js/html5.js'"></script>
-	<![endif]-->
 	<link rel="stylesheet" type="text/css" media="all" href="http://livedemo00.template-help.com/wordpress_34098/wp-content/themes/theme1273/style.css" />
   	<link rel="stylesheet" type="text/css" media="all" href="http://livedemo00.template-help.com/wordpress_34098/wp-content/themes/theme1273/css/prettyPhoto.css" />
 	<link rel="alternate" type="application/rss+xml" title="TV channel &raquo; Feed" href="http://livedemo00.template-help.com/wordpress_34098/?feed=rss2" />
