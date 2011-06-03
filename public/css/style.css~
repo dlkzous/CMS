@@ -97,7 +97,7 @@ h1{
 		margin-bottom:4px;
 		padding:10px 0 10px 16px;
 		border-top:1px solid #2a2a2a;
-		background:url(images/sidebar-tail.png);
+		background:url(../../public/images/sidebar-tail.png);
 	}
 h2{
   font-size:1.5em;
@@ -330,7 +330,7 @@ body {
 	min-width:960px;
 	}
 body{
-	background:url(images/tail-body.gif) repeat center center fixed #232323;
+	background:url(../../public/images/tail-body.gif) repeat center center fixed #232323;
 	color: #8d8d8d;
 	font: 100%/13px Arial, Helvetica, sans-serif;
 	position:relative;
@@ -339,7 +339,7 @@ body{
 #main {
 	font-size:.688em;
 	position:relative;
-	background:url(images/header-tail.jpg) repeat-x left top;
+	background:url(../../public/images/header-tail.jpg) repeat-x left top;
 }
 .container {
 	width: 947px;
@@ -354,7 +354,7 @@ body{
 	right:0;
 	width:50%;
 	top:0;
-	background:url(images/header-tail-right.gif) repeat-x right top;
+	background:url(../../public/images/header-tail-right.gif) repeat-x right top;
 }
 
 
@@ -366,7 +366,7 @@ body{
 	position:relative;
 	z-index:999;
 }	
-	#header .header-bg {background:url(../public/images/header-bg.jpg) no-repeat center top;} 
+	#header .header-bg {background:url(../../public/images/header-bg.jpg) no-repeat center top;} 
 	#header .container { height:250px;}
 	
 
@@ -477,7 +477,7 @@ ul.sf-menu li li li.sfHover ul {
 .sf-menu a  { /* visited pseudo selector so IE6 applies text colour*/
 	color:			#686868;
 }
-.sf-menu > li { background:url(images/nav-divider.png) no-repeat right top;}
+.sf-menu > li { background:url(../../public/images/nav-divider.png) no-repeat right top;}
 .sf-menu > li > a {
 	font-size:15px;
 	line-height:52px;
@@ -485,7 +485,7 @@ ul.sf-menu li li li.sfHover ul {
 	padding:0 24px;
 }
 .sf-menu > li:first-child a { 
-	background:url(images/nav-divider.png) no-repeat left top;
+	background:url(../../public/images/nav-divider.png) no-repeat left top;
 	padding:0 31px 0 30px;
 }
 .sf-menu > li > a:hover,
@@ -591,7 +591,7 @@ li.sfHover > a > .sf-sub-indicator {
 	position:relative;
 	z-index:1;
 	padding:12px 0 23px 0;
-	background:url(images/primary-cont-tail.png) repeat-x center top;
+	background:url(../../public/images/primary-cont-tail.png) repeat-x center top;
 }
 	
 #content {
@@ -635,7 +635,7 @@ h3#comments {
 				padding:10px 10px 25px 60px;
 				position:relative;
 				zoom:1;
-				background:url(images/sidebar-tail1.png);
+				background:url(../../public/images/sidebar-tail1.png);
 				margin-bottom:20px;
 				}
 		.author-comment {
@@ -742,7 +742,7 @@ h3#comments {
 		.post-content ul li {
 			list-style-type:none;
 			padding-left:12px;
-			background:url(images/marker1.gif) no-repeat left 6px;
+			background:url(../../public/images/marker1.gif) no-repeat left 6px;
 			margin-top:5px;
 		}
 		
@@ -791,7 +791,7 @@ article.post {
 	margin-bottom:4px;
 	overflow:hidden;
 	width:100%;
-	background:url(images/sidebar-tail.png);
+	background:url(../../public/images/sidebar-tail.png);
 	border-top:1px solid #2a2a2a;
 	padding:13px 0 18px 0;
 }
@@ -818,7 +818,7 @@ article.single-post {
 	margin-bottom:30px;
 	overflow:hidden;
 	width:100%;
-	background:url(images/sidebar-tail.png);
+	background:url(../../public/images/sidebar-tail.png);
 	border-top:1px solid #2a2a2a;
 	padding:13px 0 18px 0;
 	}
@@ -932,7 +932,7 @@ nav.oldernewer a span { font-size:13px; }
 	width:100%;
 	overflow:hidden;
 	margin-bottom:3em;
-	background:url(images/sidebar-tail1.png);
+	background:url(../../public/images/sidebar-tail1.png);
 	border-top:1px solid #2a2a2a;
 }
 	.author-info .inner {padding:10px 10px 20px 16px;}
@@ -983,7 +983,7 @@ nav.oldernewer a span { font-size:13px; }
 		list-style-type:none;
 		margin-top:5px;
 		padding-left:10px;
-		background:url(images/marker1.gif) no-repeat left 7px;
+		background:url(../../public/images/marker1.gif) no-repeat left 7px;
 	}
 	#recent-author-comments ul li:first-child { margin:0;}
 
@@ -1077,7 +1077,7 @@ nav.oldernewer a span { font-size:13px; }
 				width:153px;
 				height:153px;
 				position:relative;
-				background:black url(images/loading.gif) 50% 50% no-repeat;
+				background:black url(../../public/images/loading.gif) 50% 50% no-repeat;
 				-webkit-transition: all .2s ease-in-out;
 				-moz-transition: all .2s ease-in-out;
 				-o-transition: all .2s ease-in-out;
@@ -1111,7 +1111,7 @@ nav.oldernewer a span { font-size:13px; }
 				width:46px;
 				height:46px;
 				margin:-23px 0 0 -23px;
-				background:url(images/play-button-small.png) no-repeat left -46px;
+				background:url(../../public/images/play-button-small.png) no-repeat left -46px;
 				cursor:pointer;
 				z-index:9999;
 			}
@@ -1158,7 +1158,7 @@ nav.oldernewer a span { font-size:13px; }
 	float:left;
 	width:185px;
 	margin-right:6px;
-	background:url(images/sidebar-tail.png);
+	background:url(../../public/images/sidebar-tail.png);
 	border-top:1px solid #2a2a2a;	
 }
 	#sidebar { padding:18px 0 12px 0;}
@@ -1215,7 +1215,7 @@ nav.oldernewer a span { font-size:13px; }
 		border:none;
 	}
 		#sidebar-right .widget {
-			background:url(images/sidebar-tail1.png);
+			background:url(../../public/images/sidebar-tail1.png);
 			border-top:1px solid #2a2a2a;
 			padding-bottom:20px;	
 		}
@@ -1327,7 +1327,7 @@ nav.oldernewer a span { font-size:13px; }
 /* Links 
 ---------------------------------------- */
 .widget.widget_links ul li {
-	background:url(images/marker.gif) no-repeat 24px 8px;
+	background:url(../../public/images/marker.gif) no-repeat 24px 8px;
 }
 .widget.widget_links ul li a {
 	text-decoration:underline;
@@ -1374,7 +1374,7 @@ nav.oldernewer a span { font-size:13px; }
 ---------------------------------------- */
 .widget-area.tabbed-widget {
 	border-top:1px solid #2a2a2a;
-	background:url(images/sidebar-tail.png);
+	background:url(../../public/images/sidebar-tail.png);
 	margin-bottom:4px;
 }
 	.widget-area.tabbed-widget ul.tw-tabbed-nav li {
@@ -1430,7 +1430,7 @@ nav.oldernewer a span { font-size:13px; }
 		.video a span.play {
 			background-repeat:no-repeat;
 			background-position:left -100px;
-			background-image:url(images/play-button.png);
+			background-image:url(../../public/images/play-button.png);
 			width:100px;
 			height:100px;
 			position:absolute;
@@ -1509,7 +1509,7 @@ nav.oldernewer a span { font-size:13px; }
 		}
 		.testimonials li blockquote {
 			border:none;
-			background:url(images/quotes.png) no-repeat 0 0;
+			background:url(../../public/images/quotes.png) no-repeat 0 0;
 			margin:0;
 			padding:0;
 			}
@@ -1532,7 +1532,7 @@ nav.oldernewer a span { font-size:13px; }
 ---------------------------------------- */
 #footer {
 	padding:15px 0;
-	background:url(images/footer-tail.gif) repeat center top;
+	background:url(../../public/images/footer-tail.gif) repeat center top;
 	color:white;
 	line-height:19px;
 }
@@ -1581,7 +1581,7 @@ nav.oldernewer a span { font-size:13px; }
 			padding-left:22px;
 			background-repeat:no-repeat;
 			background-position:left top;
-			background-image:url(images/list-left.png);
+			background-image:url(../../public/images/list-left.png);
 		}
 		.list li a:hover { 
 			color:white;
@@ -1592,7 +1592,7 @@ nav.oldernewer a span { font-size:13px; }
 				display:block;
 				background-repeat:no-repeat;
 				background-position:right top;
-				background-image:url(images/list-right.png);
+				background-image:url(../../public/images/list-right.png);
 				padding-right:1px;
 			}
 			.list li a:hover span { background-position:left -39px;}
@@ -1603,14 +1603,14 @@ nav.oldernewer a span { font-size:13px; }
 					padding:4px 0 0 10px;
 					background-repeat:repeat-x;
 					background-position:left top;
-					background-image:url(images/list-tail.png);
+					background-image:url(../../public/images/list-tail.png);
 				}
 				.list li a:hover span span { background-position:right -39px;}
 				
 .list1 { margin:0;}				
 	.list1 li { 
 		list-style-type:none;
-		background:url(images/divider.gif) repeat-x left top !important;
+		background:url(../../public/images/divider.gif) repeat-x left top !important;
 		padding:12px 0 0 0 !important;
 		margin-top:12px;
 	}
@@ -1640,7 +1640,7 @@ p.nocomments { padding:20px 0 0 16px;}
 .box {
 	width:100%;
 	overflow:hidden;
-	background:url(images/sidebar-tail.png);
+	background:url(../../public/images/sidebar-tail.png);
 	border-top:1px solid #2b2b2b;
 }
 .box.top-indent { margin-top:24px;}				
@@ -1718,7 +1718,7 @@ input, select, textarea {
 		border:1px solid #a8a8a8;
 		}
 	#commentform #submit {
-		background:url(images/submit.png) no-repeat left top;
+		background:url(../../public/images/submit.png) no-repeat left top;
 		width:61px;
 		height:21px;
 		cursor:pointer;
@@ -1770,7 +1770,7 @@ input, select, textarea {
 		}
 	.wpcf7-form .submit-wrap input {
 		cursor:pointer;
-		background:url(images/submit.png) no-repeat left top;
+		background:url(../../public/images/submit.png) no-repeat left top;
 		text-indent:-9999px;
 		height:21px;
 		width:62px;
@@ -1806,7 +1806,7 @@ input, select, textarea {
 	float:left;
 	width:237px;
 	height:21px;
-	background:url(images/search-text.gif) no-repeat left top;
+	background:url(../../public/images/search-text.gif) no-repeat left top;
 	margin-right:2px;
 }
 .searchform input[type=text] {
@@ -1820,7 +1820,7 @@ input, select, textarea {
 		width:62px;
 		height:21px;
 		border:none;
-		background:url(images/button-bg.gif) no-repeat left top;
+		background:url(../../public/images/button-bg.gif) no-repeat left top;
 		color:white;
 		cursor:pointer;
 		float:left;
