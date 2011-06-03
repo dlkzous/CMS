@@ -295,11 +295,11 @@ Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. M
       <div class="post-content">
 	   <div class="featured-thumbnail"></div>	
         <div class="excerpt"><div class="wrapper extra-columns">
-	<div class="one_half"><img src="wp-content/themes/theme1273/images/post-image01.jpg" class="alignleft" />
+	<div class="one_half"><img src="<?= IMAGE_PATH .'post-image01.jpg' ?>" class="alignleft" />
 		<h5><a href="#">Springfield Lovers</a></h5>
 		<p>Hey &#8220;Simpsons&#8221; fans! Looking for hot guys or gals? We&#8217;ve got your Springfield hookups right.</p>
 	</div>
-	<div class="one_half last"><img src="wp-content/themes/theme1273/images/post-image02.jpg" class="alignleft" />
+	<div class="one_half last"><img src="<?= IMAGE_PATH .'post-image02.jpg' ?>" class="alignleft" />
 		<h5><a href="#">Kid’s Planet</a></h5>
 		<p>Hey &#8220;Simpsons&#8221; fans! Looking for hot guys or gals? We&#8217;ve got your Springfield hookups right.</p>
 	</div>
@@ -322,7 +322,7 @@ Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. M
 <div id="sidebar-right">
 	<div id="text-7" class="widget widget_text"><h3>Weather</h3>			<div class="textwidget"><div id="weather">
 
-<img src="wp-content/themes/theme1273/images/weather-img.jpg" />
+<img src="<?= IMAGE_PATH .'weather-img.jpg' ?>" />
 <a href="#">Click for Your Forecast</a>
 
 </div></div>
