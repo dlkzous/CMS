@@ -6,7 +6,7 @@ function load_view($view, $data = array()){
 		if(file_exists(BASE_URL."system/views/$template/".$view.".php"))
 		{
 			extract($data);
-			require(BASE_URL."system/views/$template/header.php");
+			//require(BASE_URL."system/views/$template/header.php");
 			require(BASE_URL."system/views/$template/".$view.".php");
 		}else{
 			$error_message = "The view for this page cannot be found on the server.";
