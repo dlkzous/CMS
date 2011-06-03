@@ -23,18 +23,18 @@ function system_destruct(){
 
 function system_init(){
 	//load default configuration file
-	require(BASE_URL . 'system/config.php');
+	require(LOCAL_DIR . 'system/config.php');
 
 	//load default system libraries
 	//url redirector
-	require(BASE_URL . 'system/libs/url.php');
+	require(LOCAL_DIR . 'system/libs/url.php');
 	//this library file provides functions to load controllers, models, views and helpers.
-	require(BASE_URL . 'system/libs/load.php');
+	require(LOCAL_DIR . 'system/libs/load.php');
 	//database library
-	require(BASE_URL . 'system/libs/database.php');
+	require(LOCAL_DIR . 'system/libs/database.php');
 
 	//load default system helper
-	require(BASE_URL . 'system/helpers/default.php');
+	require(LOCAL_DIR . 'system/helpers/default.php');
 }
 
 ?>
