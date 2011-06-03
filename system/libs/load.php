@@ -1,13 +1,18 @@
 <?
 
-function load_view($view, $data = array()){
+function load_view($view, $data = array(), $ajax = false){
 	$template = $_SESSION['template'];
 	if($template){
 		if(file_exists(LOCAL_DIR."system/views/$template/".$view.".php"))
 		{
 			extract($data);
-			require(LOCAL_DIR."system/views/$template/header.php");
+			if(!$ajax){
+				require(LOCAL_DIR."system/views/$template/header.php");
+			}
 			require(LOCAL_DIR."system/views/$template/".$view.".php");
+			if(!$ajax){
+				require(LOCAL_DIR."system/views/$template/footer.php");
+			}
 		}else{
 			$error_message = "The view for this page cannot be found on the server.";
 			require(LOCAL_DIR."system/views/$template/error.php");
