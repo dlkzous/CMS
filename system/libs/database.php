@@ -14,7 +14,7 @@ function db_connect(){
 }
 
 function db_query($sql){
-	return mysql_query($sql,$GLOBALS['DB']);
+	return mysql_query($sql, $GLOBALS['DB']);
 }
 
 function db_disconnect(){
