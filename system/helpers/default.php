@@ -17,4 +17,8 @@ function form_submitted(){
 	}else return false;
 }
 
+function redirect($path){
+	header( "Location: ".BASE_URL.$path ) ;
+}
+
 ?>

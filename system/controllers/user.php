@@ -9,7 +9,14 @@ function user_login(){
 		
 		$data['username'] = $_POST['username'];
 		$data['password'] = $_POST['password'];
-
+		
+		$status = model_exec('user', 'login', $data);
+		
+		if($status){
+			
+		}else{
+			echo "Incorrect Credentials";
+		}
 	}
 }
 
