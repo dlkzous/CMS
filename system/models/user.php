@@ -7,18 +7,13 @@ function model_user_register($name, $email, $username, $password, $location){
 }
 
 function model_user_login($username, $password){
-	echo $username;
 	$result = db_query("SELECT `id`,`type` FROM `users` WHERE `username` = '$username' && `password` = '$password'");
 	$num_rows = mysql_num_rows($result);
 	if($num_rows){
 		$user = mysql_fetch_array($result);
 		return $user;
-	}else 
+	}else
 		return false;
-}
-
-function model_user_logout(){
-	
 }
 
 ?>

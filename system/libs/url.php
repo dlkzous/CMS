@@ -45,4 +45,10 @@ function url_dispatch()
 	}
 }
 
+//redirect to controller/page
+function redirect($path){
+	//send location header
+	header( "Location: ".BASE_URL.$path ) ;
+}
+
 ?>

@@ -1,6 +1,9 @@
 <?
 
 function user_login(){
+	unlogged_check();
+	
+	load_helper('form');
 	
 	if(!form_submitted()){
 		load_view("login");
@@ -10,10 +13,15 @@ function user_login(){
 		$data['username'] = $_POST['username'];
 		$data['password'] = $_POST['password'];
 		
-		$status = model_exec('user', 'login', $data);
+		$user = model_exec('user', 'login', $data);
 		
-		if($status){
-			
+		if($user){
+			//store user data in session
+			store_session('logged_in', true);
+			store_session('user_id', $user['id']);
+			store_session('user_type', $user['type']);
+			//redirect user to home page
+			redirect('');
 		}else{
 			echo "Incorrect Credentials";
 		}
@@ -21,6 +29,8 @@ function user_login(){
 }
 
 function user_register(){
+	load_helper('form');
+	
 	if(!form_submitted()){
 		load_view("register");
 	}else{
@@ -36,6 +46,10 @@ function user_register(){
 }
 
 function user_logout(){
+	//destroy all session data to log user out
+	session_destroy();
+	//redirect user to home
+	redirect('');
 }
 
 ?>

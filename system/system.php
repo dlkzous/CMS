@@ -3,17 +3,22 @@
 
 function system_construct(){
 	system_init();
+	
 	db_connect();
 	
 	//load helper to assist with user sessions
+	load_helper('user');
 	load_helper('session');
 	session_start(); 
 	
 	//load default template and store it into user session
 	load_model('global');
-	//if(!isset($_SESSION['template'])){
+	if(!isset($_SESSION['template'])){
 		$_SESSION['template'] = model_exec('global', 'get_setting', array("template"));
-	//}
+	}
+	
+	//load system debug helper
+	load_helper('debugging');
 }
 
 function system_destruct(){
@@ -33,8 +38,6 @@ function system_init(){
 	//database library
 	require(LOCAL_DIR . 'system/libs/database.php');
 
-	//load default system helper
-	require(LOCAL_DIR . 'system/helpers/default.php');
 }
 
 ?>
