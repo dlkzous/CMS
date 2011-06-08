@@ -13,4 +13,16 @@ function article_submit()
 	}else{
 	}	
 }
+
+function article_getCategories()
+{
+	load_model('article');
+	$categories = model_exec('article', 'getCategories');
+	
+	if($categories)
+	{
+		$data['cats'] = $categories;
+		load_view('articleCategories',$data,true);
+	}
+}
 ?>
