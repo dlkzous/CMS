@@ -1,1 +1,0 @@
-Cufon.replace('nav.primary > ul > li > a', { fontFamily: 'Futura BdCn BT', hover:true });

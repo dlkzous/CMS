@@ -1,5 +1,6 @@
 <?
 
+//Load a view and display to screen
 function load_view($view, $data = array(), $ajax = false){
 	$template = $_SESSION['template'];
 	if($template){
@@ -24,14 +25,18 @@ function load_view($view, $data = array(), $ajax = false){
 	}
 }
 
+//Load a model communicate with database
 function load_model($model){
 	require(LOCAL_DIR.'system/models/'.$model.".php");
 }
 
+
+//load a helper for extra functionality
 function load_helper($helper){
 	require(LOCAL_DIR.'system/helpers/'.$helper.".php");
 }
 
+//load a controller
 function load_controller($controller){
 	if(file_exists(LOCAL_DIR.'system/controllers/'.$controller.".php")){
 		$_SESSION['controller_exists'] = "1";
@@ -44,6 +49,7 @@ function load_controller($controller){
 	}
 }
 
+//execute a model function, pass parameters and return output
 function model_exec($name, $func, $params = array()){
 	return call_user_func_array('model_'.$name.'_'.$func, $params);
 }

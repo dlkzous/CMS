@@ -17,6 +17,11 @@ function system_construct(){
 		$_SESSION['template'] = model_exec('global', 'get_setting', array("template"));
 	}
 	
+	define("IMAGE_PATH", BASE_URL ."public/".$_SESSION['template']."/images/");
+	define("CSS_PATH", BASE_URL ."public/".$_SESSION['template']."/css/");
+	define("JS_PATH", BASE_URL ."public/".$_SESSION['template']."/js/");
+
+	
 	//load system debug helper
 	load_helper('debugging');
 }
