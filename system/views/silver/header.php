@@ -4,7 +4,7 @@
 	<title> CMS </title>
 	<script src="<?= JS_PATH. 'jquery.js' ?>"></script>
 	<script type="text/javascript">
-		var AJAXURL = "<?= BASE_URL. 'system/controllers/'?>";
+		var BASE_URL = "<?= BASE_URL ?>";
 	</script>
 	<script type="text/javascript" src="<?= JS_PATH. 'tinymce/jscripts/tiny_mce/tiny_mce.js' ?>"></script>
 	<script type="text/javascript">

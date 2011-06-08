@@ -1,11 +1,11 @@
 $(document).ready(function() {
-	$.post(AJAXURL+"article/getCategories", function(data) {
-	   alert(data);
+	var url = BASE_URL+"article/getCategories";
+	$.post(url, function(data) {
+		var categories = data.split(",");
+		$("#category").autocomplete(categories,
+		{
+		    'mustMatch':true,
+		    'multiple':false
+		});
 	 });
-	var data = "Core Selectors Attributes Traversing Manipulation CSS Events Effects Ajax Utilities".split(" ");
-	$("#category").autocomplete(data,
-	{
-        'mustMatch':true,
-        'multiple':false
-	});
 });
