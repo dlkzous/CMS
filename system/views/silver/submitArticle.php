@@ -1,7 +1,7 @@
 <form action="<?=BASE_URL?>user/login" method="post">
 	<input type="hidden" value="true" name="submit_check"><br/>
 	Article Title : <input type="text" name="title"><br/>
-	Article Category : <input type="text" name="category"><br/>
+	Article Category : <input type="text" name="category" id="category"><br/>
 	Article Content : <br/>
 	<div>
 		<textarea id="elm1" name="elm1" rows="15" cols="80" style="width: 80%">

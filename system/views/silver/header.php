@@ -2,6 +2,7 @@
 <html>
 <head> 
 	<title> CMS </title>
+	<script src="<?= JS_PATH. 'jquery.js' ?>"></script>
 	<script type="text/javascript" src="<?= JS_PATH. 'tinymce/jscripts/tiny_mce/tiny_mce.js' ?>"></script>
 	<script type="text/javascript">
 	tinyMCE.init({
@@ -40,5 +41,12 @@
 		    }
 	});
 	</script>
+	<? if($pageJs){ ?>
+	<script src="<?= JS_PATH. $js ?>"></script>
+	<? } ?>
+	
+	<link rel="stylesheet" href="<?= JS_PATH. 'autocomplete/jquery.autocomplete.css' ?>" type="text/css" />
+	<script type="text/javascript" src="<?= JS_PATH. 'autocomplete/lib/jquery.bgiframe.min.js' ?>"></script>
+	<script type="text/javascript" src="<?= JS_PATH. 'autocomplete/jquery.autocomplete.js' ?>"></script>
 </head>
 <body>

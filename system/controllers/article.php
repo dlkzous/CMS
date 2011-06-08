@@ -7,7 +7,9 @@ function article_submit()
 	load_helper('form');
 	if(!form_submitted())
 	{
-		load_view('submitArticle');
+		$data['pageJs'] = true;
+		$data['js'] = 'submitArticle.js';
+		load_view('submitArticle', $data);
 	}else{
 	}	
 }
