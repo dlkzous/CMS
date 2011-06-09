@@ -1,16 +1,22 @@
 <?
 
 //Load a view and display to screen
-function load_view($view, $data = array(), $ajax = false){
+function load_view($view, $data = array(), $ajax = false, $admin = false){
 	$template = $_SESSION['template'];
-	if($template){
-		if(file_exists(LOCAL_DIR."system/views/$template/".$view.".php"))
+	if(isset($_SESSION['template'])){
+		if($admin){
+				admin_check();
+				$template = 'admin';
+				dump($template);
+		}
+		
+		if(file_exists(LOCAL_DIR."system/views/$template/$view.php"))
 		{
 			extract($data);
 			if(!$ajax){
 				require(LOCAL_DIR."system/views/$template/header.php");
 			}
-			require(LOCAL_DIR."system/views/$template/".$view.".php");
+			require(LOCAL_DIR."system/views/$template/$view.php");
 			if(!$ajax){
 				require(LOCAL_DIR."system/views/$template/footer.php");
 			}
@@ -38,9 +44,9 @@ function load_helper($helper){
 
 //load a controller
 function load_controller($controller){
-	if(file_exists(LOCAL_DIR.'system/controllers/'.$controller.".php")){
+	if(file_exists(LOCAL_DIR."system/controllers/$controller.php")){
 		$_SESSION['controller_exists'] = "1";
-		require(LOCAL_DIR.'system/controllers/'.$controller.".php");
+		require(LOCAL_DIR."system/controllers/$controller.php");
 	}else{
 		$_SESSION['controller_exists'] = "0";
 		$error_message = "This page cannot be found on the server.";
