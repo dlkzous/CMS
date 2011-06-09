@@ -1,6 +1,6 @@
 <?
 foreach($cats as $category)
 {
-	echo $category. ",";
+	echo "{label:\"".$category['name']."\", value:".$category['id']. "},";
 }
 ?>
