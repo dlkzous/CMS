@@ -15,9 +15,9 @@
 				<div id="status">Welcome <?=$name?></div>
 				<div id="topmenu">
 					<ul>
-						<li class="roundtop"><a href="#">Dashboard</a></li>
-						<li class="roundtop"><a href="#">Articles</a></li>
-						<li class="roundtop"><a href="#">Settings</a></li>
+						<li class="roundtop"><a href="<?= BASE_URL ?>admin">Dashboard</a></li>
+						<li class="roundtop"><a href="<?= BASE_URL ?>admin/articles">Articles</a></li>
+						<li class="roundtop"><a href="<?= BASE_URL ?>admin/settings">Settings</a></li>
 					</ul>
 				</div>
 			</div>
