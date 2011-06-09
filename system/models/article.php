@@ -79,4 +79,14 @@ function model_article_addTag($name, $articleId)
 		}
 	}
 }
+
+function model_article_getDetails($articleId)
+{
+	$revisionResult = db_query("SELECT MAX(id) as id FROM `article_revisions` WHERE `article_id`='$articleId'");
+	$revision = mysql_fetch_array($revisionResult);
+	$revisionId = $revision['id'];
+	echo $revisionId;
+	$result = db_query("SELECT * FROM `article_revisions` WHERE `article_id`='$articleId'  && `id`='$revisionId'");
+	echo "SELECT * FROM `article_revisions` WHERE `article_id`='$articleId'  && `id`='$revisionId'";
+}
 ?>

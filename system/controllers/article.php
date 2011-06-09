@@ -87,6 +87,14 @@ function article_submit()
 	}	
 }
 
+function article_edit($articleId)
+{
+	load_model('article');
+	$data['articleId'] = $articleId;
+	$result = model_exec('article','getDetails', $data);
+	
+}
+
 function article_getCategories()
 {
 	load_model('article');
