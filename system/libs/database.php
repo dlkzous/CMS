@@ -26,10 +26,10 @@ function db_disconnect(){
 //convert a database result to an array and return it
 function db_toarray($result){
 	$newresult = array();
+	
 	while($row=mysql_fetch_assoc($result)) {
 		array_push($newresult, $row);
 	}
-	
 	return $newresult;
 }
 

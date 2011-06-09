@@ -1,16 +1,13 @@
 <?
 
 // dump function (or if you have xdebug you can just use var_dump)
-function dump($item, $die=true)
+function dump($item)
 {
     $printString = '<pre>' . print_r($item, true) . '</pre>';
-    if($die)
-        die($printString);
-    else
-        echo $printString;
 }
 
-function debug(){
+//Print site input/output produced to debug
+function debug($die=false){
 	echo "SESSION<br>";
 	dump($_SESSION);
 
@@ -19,6 +16,8 @@ function debug(){
 	
 	echo "POST<br>";
 	dump($_POST);
+	
+	if($die) exit();	
 }
 
 ?>
