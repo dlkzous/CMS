@@ -16,9 +16,20 @@ function model_article_getCategories()
 		return false;
 }
 
-function model_article_submit()
+function model_article_submit($title, $userId, $categoryId, $content)
 {
-	
-	return false;
+	$articleId = db_query("INSERT INTO `cmsdb`.`article` (`id`, `user_id`, `category_id`, `content`, `date`, `title`, `published`) VALUES (NULL, '$userId', '$categoryId', '$content', CURRENT_TIMESTAMP, '$title', 0);");
+	if($articleId)
+	{
+		$result = db_query("INSERT INTO `cmsdb`.`article_revisions` (`article_id`, `revision_number`, `original_article_id`) VALUES ('$articleId', 1 , $articleId);");
+		if($result)
+		{
+			return true;
+		}else{
+			return false;
+		}
+	}else{
+		return false;
+	}
 }
 ?>

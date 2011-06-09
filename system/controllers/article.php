@@ -47,18 +47,19 @@ function article_submit()
 		}else{
 			$article['title'] = $data['title'];
 			$article['category'] = $data['categoryId'];
+			$article['userId'] = user_id();
 			$article['content'] = $data['content'];
 			$tagsList = $data['tags'];
-			$result = model_exec('article','submit');
+			$result = model_exec('article','submit', $article);
 			if($result == true)
 			{
 				unset($data);
 				$data['message'] = "Article successfully submitted.";
-				//var_dump($data);
+				var_dump($data);
 			}else{
 				unset($data);
 				$data['message'] = "Error in submission process. Please try again later.";
-				//var_dump($data);
+				var_dump($data);
 			}
 			
 		}
