@@ -1,4 +1,8 @@
 <?
+function article_construct(){
+	
+}
+
 function article_submit()
 {
 	// Check if user is logged in

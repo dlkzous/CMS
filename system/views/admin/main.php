@@ -26,6 +26,8 @@
 						<ul>
 							<li class="title"><a href="#">Quick Links</a></li>
 							<li><a href="#">New Article</a></li>
+							<li><a href="#">Manage Categories</a></li>
+							<li><a href="#">Manage Tags</a></li>
 						</ul>
 					</div>
 			</div>
