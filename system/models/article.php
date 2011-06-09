@@ -24,12 +24,53 @@ function model_article_submit($title, $userId, $categoryId, $content)
 		$result = db_query("INSERT INTO `cmsdb`.`article_revisions` (`article_id`, `revision_number`, `original_article_id`) VALUES ('$articleId', 1 , $articleId);");
 		if($result)
 		{
-			return true;
+			return $result;
 		}else{
 			return false;
 		}
 	}else{
 		return false;
+	}
+}
+
+function model_article_addTag($name, $articleId)
+{
+	// Check if tag exists in the database.
+	$tag = db_query("SELECT 'id' FROM `tags` WHERE `name`= '$name'");
+	$num_rows = mysql_num_rows($tag);
+	if($num_rows){
+		// If it does, check if article is tagged with this tag.
+		$result = db_query("SELECT * FROM `article_tags` WHERE `article_id`='$articleId' && `tag_id`='$tag['id']'");
+		$num_rows = mysql_num_rows($result);
+		if($result)
+		{
+			// do nothing if article already tagged with this tag
+			return true;
+		}else{
+			// else tag with this tag
+			$result = db_query("INSERT INTO `cmsdb`.`article_tags` (`article_id`, `tag_id`) VALUES ('$articleId', '$tag['id']');");
+			if($result)
+			{
+				return true;
+			}else{
+				return false;
+			}
+		}
+	}else{
+		// If tag does not exist, add tag to db and then tag article
+		$tagId = db_query("INSERT INTO `cmsdb`.`tags` (`id`, `name`) VALUES (NULL, '$name');");
+		if($tagId)
+		{
+			$result = db_query("INSERT INTO `cmsdb`.`article_tags` (`article_id`, `tag_id`) VALUES ('$articleId', '$tagId');");
+			if($result)
+			{
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
 	}
 }
 ?>
