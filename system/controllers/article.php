@@ -46,8 +46,8 @@ function article_submit()
 			load_view('submitArticle',$data);
 		}else{
 			$article['title'] = $data['title'];
-			$article['category'] = $data['categoryId'];
 			$article['userId'] = user_id();
+			$article['category'] = $data['categoryId'];
 			$article['content'] = $data['content'];
 			$tagsList = $data['tags'];
 			$result = model_exec('article','submit', $article);

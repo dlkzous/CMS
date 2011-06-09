@@ -1,7 +1,19 @@
 <?
 
 function admin_index(){
+	load_model('admin');
 	$data['name'] = get_session('user_name');
+	
+	$data['dash']['Users']['Total'] = model_exec('admin', 'get_user_count');
+	$data['dash']['Users']['Readers'] = model_exec('admin', 'get_user_count', array(USER));
+	$data['dash']['Users']['Moderators'] = model_exec('admin', 'get_user_count', array(MOD));
+	$data['dash']['Users']['Administrators'] = model_exec('admin', 'get_user_count', array(ADMIN));
+	
+	$data['dash']['Articles']['Total'] = model_exec('admin', 'get_article_count');
+	$data['dash']['Articles']['Published'] = model_exec('admin', 'get_article_count', array(0));
+	$data['dash']['Articles']['UnPublished'] = model_exec('admin', 'get_article_count', array(1));
+	$data['dash']['Articles']['Revisions'] = model_exec('admin', 'get_rev_count');
+	
 	load_view('main', $data, false, true);
 }
 

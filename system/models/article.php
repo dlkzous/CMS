@@ -18,15 +18,17 @@ function model_article_getCategories()
 
 function model_article_submit($title, $userId, $categoryId, $content)
 {
-	$articleResult = db_query("INSERT INTO `cmsdb`.`article` (`id`, `user_id`, `category_id`, `content`, `date`, `title`, `published`) VALUES (NULL, '$userId', '$categoryId', '".addslashes($content)."', CURRENT_TIMESTAMP, '".addslashes($title)."', 0);");
+	$articleResult = db_query("INSERT INTO  `cmsdb`.`article` (`id` ,`revision_id` ,`published` ,`date`)VALUES (NULL ,  '0',  '0', CURRENT_TIMESTAMP);");
 	$articleId = mysql_insert_id();
 	if($articleResult)
 	{
 		//echo "INSERT INTO `cmsdb`.`article_revisions` (`article_id`, `revision_number`, `original_article_id`) VALUES ('$articleId', 1 , $articleId);";
-		$result = db_query("INSERT INTO `cmsdb`.`article_revisions` (`article_id`, `revision_number`, `original_article_id`) VALUES ('$articleId', 1 , $articleId);");
+		$result = db_query("INSERT INTO `cmsdb`.`article_revisions` (`id`, `article_id`, `user_id`, `category_id`, `title`, `content`, `date`) VALUES (NULL, '$articleId', '$userId', '$categoryId', '".addslashes($title)."', '".addslashes($content)."', CURRENT_TIMESTAMP);");
+		$revisionId = mysql_insert_id();
 		if($result)
 		{
-			return $articleId;
+			echo $revisionId;
+			return $revisionId;
 		}else{
 			return false;
 		}
@@ -66,6 +68,7 @@ function model_article_addTag($name, $articleId)
 		if($tagResult)
 		{
 			$result = db_query("INSERT INTO `cmsdb`.`article_tags` (`article_id`, `tag_id`) VALUES ('$articleId', '$tagId');");
+			echo $result;
 			if($result)
 			{
 				return true;

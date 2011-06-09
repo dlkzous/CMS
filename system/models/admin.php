@@ -22,4 +22,28 @@ function model_admin_update_user($id, $data){
 	db_query("UPDATE  `users` SET  `email` = '$email',`username` =  '$username',`password` =  '$password', `location` =  '$location', `type` =  '$type' WHERE  `id`='$id'");
 }
 
+function model_admin_get_user_count($type = false){
+	$query = "SELECT count(*) FROM `users`";
+	if($type !== false){
+		$query .= " WHERE `type`='$type'";
+	}
+	$result = db_query($query);
+	$first_row = mysql_fetch_array($result);
+	return $first_row['count(*)'];
+}
+
+function model_admin_get_article_count($pub = false){
+	$query = "SELECT count(*) FROM `users`";
+	if($pub !== false){
+		$query .= " WHERE `type`='$pub'";
+	}
+	$result = db_query($query);
+	$first_row = mysql_fetch_array($result);
+	return $first_row['count(*)'];
+}
+
+function model_admin_get_rev_count(){
+	
+}
+
 ?>
