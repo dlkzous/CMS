@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" type="text/css" href="static/style.css"/> 
+		<link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>public/admin/style.css"/> 
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-		<script src="static/js/jquery.js"></script> 
-		<script src="static/js/init.js"></script> 
+		<script src="<?= BASE_URL ?>public/admin/js/jquery.js"></script> 
+		<script src="<?= BASE_URL ?>public/admin/js/init.js"></script> 
 		<title>The Journal</title>
 	</head>
 	<body>
