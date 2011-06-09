@@ -82,11 +82,50 @@ function model_article_addTag($name, $articleId)
 
 function model_article_getDetails($articleId)
 {
+	// Get latest revision id
 	$revisionResult = db_query("SELECT MAX(id) as id FROM `article_revisions` WHERE `article_id`='$articleId'");
-	$revision = mysql_fetch_array($revisionResult);
-	$revisionId = $revision['id'];
-	echo $revisionId;
-	$result = db_query("SELECT * FROM `article_revisions` WHERE `article_id`='$articleId'  && `id`='$revisionId'");
-	echo "SELECT * FROM `article_revisions` WHERE `article_id`='$articleId'  && `id`='$revisionId'";
+	if($revisionResult)
+	{
+		$revision = mysql_fetch_array($revisionResult);
+		$revisionId = $revision['id'];
+		// Get latest revision details
+		$articleResult = db_query("SELECT * FROM `article_revisions` WHERE `article_id`='$articleId'  && `id`='$revisionId'");
+		if($articleResult)
+		{
+			$article = mysql_fetch_array($articleResult);
+			$details['title'] = $article['title'];
+			$details['content'] = $article['content'];
+			// Get category name
+			$categoryResult = db_query("SELECT * FROM `article_categories` WHERE `id`='".$article['category_id']."'");
+			if($categoryResult)
+			{
+				$category = mysql_fetch_array($categoryResult);
+				$details['category'] = $category['name'];
+			}
+			
+			// Get tags
+			$tagResult = db_query("SELECT * FROM `article_tags` WHERE `article_id`='$articleId'");
+			if($tagResult)
+			{
+				$tagList = "";
+				while($tags = mysql_fetch_array($tagResult))
+				{
+					$tagId = $tags['tag_id'];
+					$tagNameResult = db_query("SELECT * FROM `tags` WHERE `id`='$tagId'");
+					if($tagNameResult)
+					{
+						$tagName = mysql_fetch_array($tagNameResult);
+						$tagList .= $tagName['name'].", ";
+					}
+				}
+				$details['tags'] = $tagList;
+			}
+			return $details;
+		}else{
+			return false;
+		}
+	}else{
+		return false;
+	}
 }
 ?>
