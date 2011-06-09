@@ -18,7 +18,7 @@ function model_article_getCategories()
 
 function model_article_submit($title, $userId, $categoryId, $content)
 {
-	$articleId = db_query("INSERT INTO `cmsdb`.`article` (`id`, `user_id`, `category_id`, `content`, `date`, `title`, `published`) VALUES (NULL, '$userId', '$categoryId', '$content', CURRENT_TIMESTAMP, '$title', 0);");
+	$articleId = db_query("INSERT INTO `cmsdb`.`article` (`id`, `user_id`, `category_id`, `content`, `date`, `title`, `published`) VALUES (NULL, '$userId', '$categoryId', '".addslashes($content)."', CURRENT_TIMESTAMP, '".addslashes($title)."', 0);");
 	if($articleId)
 	{
 		$result = db_query("INSERT INTO `cmsdb`.`article_revisions` (`article_id`, `revision_number`, `original_article_id`) VALUES ('$articleId', 1 , $articleId);");
