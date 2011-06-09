@@ -60,9 +60,10 @@ function article_submit()
 					$tags = split(",",$tagsList);
 					foreach($tags as $tag)
 					{
-						if($tag != "")
+						$tName = trim($tag);
+						if($tName != "")
 						{
-							$tagName['name'] = $tag;
+							$tagName['name'] = $tName;
 							$tagName['articleId'] = $result;
 							$result = model_exec('article','addTag', $tagName);
 							if(!$result)
