@@ -10,4 +10,15 @@ function dump($item, $die=true)
         echo $printString;
 }
 
+function debug(){
+	echo "SESSION<br>";
+	dump($_SESSION);
+
+	echo "GET<br>";
+	dump($_GET);
+	
+	echo "POST<br>";
+	dump($_POST);
+}
+
 ?>

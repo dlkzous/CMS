@@ -10,7 +10,7 @@ function get_session($name){
 
 // store session variable value with name
 function store_session($name, $value){
-	$_SESSION[$name] = value;
+	$_SESSION[$name] = $value;
 }
 
 ?>

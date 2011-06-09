@@ -38,7 +38,7 @@ function url_dispatch()
 	//load the respective controller into memory
 	load_controller($controller);
 	
-	if($_SESSION['controller_exists'] == "1")
+	if($GLOBALS['controller_exists'] == "1")
 	{
 		//call the respective function in the controller and send parameters if any.
 		call_user_func_array($controller.'_'.$c_function, $params);		

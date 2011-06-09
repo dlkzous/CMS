@@ -7,6 +7,13 @@ function logged_in(){
 	}else return false;
 }
 
+//return user type
+function user_type(){
+	if(isset($_SESSION['user_type'])){
+		return $_SESSION['user_type'];
+	}else return false;
+}
+
 // check if user is logged in and redirect to home
 function unlogged_check(){
 	if(logged_in()){
@@ -17,6 +24,13 @@ function unlogged_check(){
 // check if user is NOT logged in and redict to home
 function logged_check(){
 	if(!logged_in()){
+		redirect('');
+	}
+}
+
+function admin_check(){
+	logged_check();
+	if(user_type() != ADMIN){
 		redirect('');
 	}
 }

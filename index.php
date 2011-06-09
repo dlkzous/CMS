@@ -2,9 +2,11 @@
 // define root directory
 define("LOCAL_DIR", realpath(dirname(__FILE__) . '/') . '/');
 define("BASE_URL", "http://localhost/CMS/");
-define("IMAGE_PATH", BASE_URL ."public/images/");
-define("CSS_PATH", BASE_URL ."public/css/");
-define("JS_PATH", BASE_URL ."public/js/");
+
+//define user types
+define("ADMIN", 2);
+define("MOD", 1);
+define("USER", 0);
 
 //load system base files
 require(LOCAL_DIR . 'system/system.php');

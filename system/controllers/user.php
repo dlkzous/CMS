@@ -20,6 +20,7 @@ function user_login(){
 			store_session('logged_in', true);
 			store_session('user_id', $user['id']);
 			store_session('user_type', $user['type']);
+			store_session('user_name', $user['name']);
 			//redirect user to home page
 			redirect('');
 		}else{
