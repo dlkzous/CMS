@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	var url = BASE_URL+"article/getCategories";
-	$.post(url, function(data) {
+	var catUrl = BASE_URL+"article/getCategories";
+	$.post(catUrl, function(data) {
 		var categories = data.split(",");
 		$("#category").autocomplete(categories,
 		{
@@ -12,5 +12,14 @@ $(document).ready(function() {
 		}).result(function(event,item){
         				$("#catId").val(item[0].split('|')[1]);
     				});
+	 });
+	 
+	 var tagsUrl = BASE_URL+"tag/getTags";
+	 $.post(tagsUrl, function(data) {
+		var tags = data.split(",");
+		$("#tags").autocomplete(tags,
+		{
+		    'multiple':true
+		});
 	 });
 });

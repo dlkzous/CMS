@@ -36,15 +36,19 @@ function article_submit()
 			$data['errors'] = true;
 		}
 		
+		$data['tags'] = $_POST['tags'];
+		
 		// If errors refresh page.
 		if($data['errors'])
 		{
 			$data['formError'] = $formError;
 			load_view('submitArticle',$data);
 		}else{
-		var_dump($data);
 			$article['title'] = $data['title'];
-			//$article['category'] = $data[
+			$article['category'] = $data['category'];
+			$article['content'] = $data['content'];
+			$article['tags'] = $data['tags'];
+			
 		}
 	}	
 }

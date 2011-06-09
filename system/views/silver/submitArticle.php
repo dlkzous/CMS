@@ -3,7 +3,7 @@
 	Article Title : <input type="text" name="title" <? if($errors){ ?>value="<?= $title ?>" <? }?>><br/>
 	Article Category : <input type="text" name="category" id="category" <? if($errors){ ?>value="<?= $category ?>" <? }?>><br/>
 	<input type="hidden" name="categoryId" id="catId" />
-	Tags : <input type="text" name="tags" id="tags"><br/>
+	Tags : <input type="text" name="tags" id="tags" <? if($errors){ ?>value="<?= $tags ?>" <? }?>><br/>
 	Article Content : <br/>
 	<div>
 		<textarea id="elm1" name="elm1" rows="15" cols="80" style="width: 80%">
