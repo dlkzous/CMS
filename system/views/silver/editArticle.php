@@ -3,6 +3,7 @@
 	Article Title : <input type="text" name="title" value="<?= $title ?>"><br/>
 	Article Category : <input type="text" name="category" id="category" value="<?= $category ?>"><br/>
 	<input type="hidden" name="categoryId" id="catId" value="<?= $categoryId ?>"/>
+	<input type="hidden" name="articleId" value="<?= $articleId ?>" />
 	Tags : <input type="text" name="tags" id="tags" value="<?= $tags ?>" ><br/>
 	Article Content : <br/>
 	<div>
