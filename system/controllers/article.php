@@ -92,7 +92,12 @@ function article_edit($articleId)
 	load_model('article');
 	$data['articleId'] = $articleId;
 	$result = model_exec('article','getDetails', $data);
-	
+	if($result)
+	{
+		var_dump($result);
+	}else{
+	echo "not Found";
+	}
 }
 
 function article_getCategories()
