@@ -38,7 +38,7 @@ function model_article_submit($title, $userId, $categoryId, $content)
 function model_article_addTag($name, $articleId)
 {
 	// Check if tag exists in the database.
-	$tagResult = db_query("SELECT 'id' FROM `tags` WHERE `name`= '$name'");
+	$tagResult = db_query("SELECT * FROM `tags` WHERE `name`= '$name'");
 	$num_rows = mysql_num_rows($tagResult);
 	if($num_rows){
 		// If it does, check if article is tagged with this tag.
