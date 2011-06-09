@@ -25,8 +25,7 @@
 					<div id="menu">
 						<ul>
 							<li class="title"><a href="#">Quick Links</a></li>
-							<li><a href="#">Unpublished Articles</a></li>
-							<li><a href="#">Published Articles</a></li>
+							<li><a href="#">New Article</a></li>
 						</ul>
 					</div>
 			</div>

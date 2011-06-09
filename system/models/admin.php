@@ -33,17 +33,35 @@ function model_admin_get_user_count($type = false){
 }
 
 function model_admin_get_article_count($pub = false){
-	$query = "SELECT count(*) FROM `users`";
+	$query = "SELECT count(*) FROM `article`";
 	if($pub !== false){
-		$query .= " WHERE `type`='$pub'";
+		$query .= " WHERE `published`='$pub'";
 	}
+	
 	$result = db_query($query);
 	$first_row = mysql_fetch_array($result);
 	return $first_row['count(*)'];
 }
 
 function model_admin_get_rev_count(){
-	
+	$query = "SELECT count(*) FROM `article_revisions`";
+	$result = db_query($query);
+	$first_row = mysql_fetch_array($result);
+	return $first_row['count(*)'];
+}
+
+function model_admin_get_category_count(){
+	$query = "SELECT count(*) FROM `article_categories`";
+	$result = db_query($query);
+	$first_row = mysql_fetch_array($result);
+	return $first_row['count(*)'];
+}
+
+function model_admin_get_tag_count(){
+	$query = "SELECT count(*) FROM `tags`";
+	$result = db_query($query);
+	$first_row = mysql_fetch_array($result);
+	return $first_row['count(*)'];
 }
 
 ?>
