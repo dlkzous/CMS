@@ -12,18 +12,18 @@ function system_construct(){
 	session_start(); 
 	
 	//load default template and store it into user session
-	load_model('global');
+	load_model('global');	
+	
+	//load template from database and load into session to avoid querying database on each call
 	if(!isset($_SESSION['template'])){
 		$_SESSION['template'] = model_exec('global', 'get_setting', array("template"));
 	}
-	
-	define("IMAGE_PATH", BASE_URL ."public/".$_SESSION['template']."/images/");
-	define("CSS_PATH", BASE_URL ."public/".$_SESSION['template']."/css/");
-	define("JS_PATH", BASE_URL ."public/".$_SESSION['template']."/js/");
 
-	
+	//declare global constants for template paths
+	system_define_template();
+
 	//load system debug helper
-	load_helper('debugging');
+	load_helper('debugging');	
 }
 
 function system_destruct(){
@@ -42,7 +42,13 @@ function system_init(){
 	require(LOCAL_DIR . 'system/libs/load.php');
 	//database library
 	require(LOCAL_DIR . 'system/libs/database.php');
+}
 
+//define global template paths
+function system_define_template(){
+	define("IMAGE_PATH", BASE_URL ."public/".$_SESSION['template']."/images/");
+	define("CSS_PATH", BASE_URL ."public/".$_SESSION['template']."/css/");
+	define("JS_PATH", BASE_URL ."public/".$_SESSION['template']."/js/");
 }
 
 ?>

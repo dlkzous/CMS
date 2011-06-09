@@ -8,7 +8,7 @@ function dump($item)
 }
 
 //Print site input/output produced to debug
-function debug($die=false){
+function debug($item){
 	echo "SESSION<br>";
 	dump($_SESSION);
 
@@ -17,6 +17,9 @@ function debug($die=false){
 	
 	echo "POST<br>";
 	dump($_POST);
+	
+	echo "ITEM<br>";
+	dump($item);
 	
 	exit();
 }

@@ -9,4 +9,9 @@ $GLOBALS['config']['db_database'] = "cmsdb";
 $GLOBALS['config']['db_username'] = "ecom";
 $GLOBALS['config']['db_password'] = "thegame"; 
 
+//define user types
+define("ADMIN", 2);
+define("MOD", 1);
+define("USER", 0);
+
 ?>
