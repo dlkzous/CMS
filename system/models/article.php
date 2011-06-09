@@ -15,4 +15,10 @@ function model_article_getCategories()
 	}else
 		return false;
 }
+
+function model_article_submit()
+{
+	
+	return false;
+}
 ?>
