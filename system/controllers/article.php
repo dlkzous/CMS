@@ -42,6 +42,7 @@ function article_submit()
 			$data['formError'] = $formError;
 			load_view('submitArticle',$data);
 		}else{
+		var_dump($data);
 			$article['title'] = $data['title'];
 			//$article['category'] = $data[
 		}
