@@ -20,6 +20,13 @@
 							</form>
 						</div> 
 					</div>
-					<?load_view('quicklinks', $data, true, true);?>
+					<div id="menu">
+						<ul>
+							<li class="title"><a href="#">Quick Links</a></li>
+							<li><a href="#">New Article</a></li>
+							<li><a href="#">Published articles</a></li>
+							<li><a href="#">UnPublished articles</a></li>
+						</ul>
+					</div>
 			</div>
 				<div class="clear"></div>

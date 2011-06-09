@@ -1,5 +1,5 @@
 			<div id="center">
-					<div id="body" style="width:100%">
+					<div id="body">
 						<div id="trace">Home :: Settings</div>
 						<div class="line"></div>
 						<div id="maincontent">
@@ -30,5 +30,6 @@
 							</form>
 						</div> 
 					</div>
+					<?load_view('quicklinks', $data, true, true);?>
 			</div>
 				<div class="clear"></div>

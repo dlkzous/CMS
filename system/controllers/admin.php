@@ -29,7 +29,16 @@ function admin_index(){
 
 function admin_articles(){
 	$data['name'] = get_session('user_name');
+	
+	$data['articles'] = model_exec('admin', 'get_published_articles');
 	load_view('articles', $data, false, true);
+}
+
+function admin_uarticles(){
+	$data['name'] = get_session('user_name');
+	
+	$data['articles'] = model_exec('admin', 'get_unpublished_articles');
+	load_view('uarticles', $data, false, true);
 }
 
 function admin_users(){
@@ -68,6 +77,10 @@ function admin_settings(){
 	
 	$data['settings'] = model_exec('admin', 'get_all_settings');
 	load_view('settings', $data, false, true);
+}
+
+function admin_categories($category){
+	
 }
 
 ?>
