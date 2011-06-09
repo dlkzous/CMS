@@ -6,19 +6,18 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 		<script src="<?= BASE_URL ?>public/admin/js/jquery.js"></script> 
 		<script src="<?= BASE_URL ?>public/admin/js/init.js"></script> 
-		<title>The Journal</title>
+		<title>INF317 Admin Panel</title>
 	</head>
 	<body>
 		<div id="content">
 			<div id="header">
-				<div id="logo">The Journal</div>
-				<div id="status">Register | Login</div>
+				<div id="logo">INF317 Admin Panel</div>
+				<div id="status">Welcome <?=$name?></div>
 				<div id="topmenu">
 					<ul>
-						<li class="roundtop"><a href="#">Home</a></li>
-						<li class="roundtop"><a href="#">Browse</a></li>
-						<li class="roundtop"><a href="#">About</a></li>
-						<li class="roundtop"><a href="#">Contact us</a></li>
+						<li class="roundtop"><a href="#">Dashboard</a></li>
+						<li class="roundtop"><a href="#">Articles</a></li>
+						<li class="roundtop"><a href="#">Settings</a></li>
 					</ul>
 				</div>
 			</div>

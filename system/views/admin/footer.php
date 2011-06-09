@@ -1,7 +1,7 @@
 
 			<div id="footer">
 				<div class="line"></div>
-				Copyright "The Journal" 2011-2012
+				INF317 Admin Panel
 			</div>
 		</div>
 	</body>

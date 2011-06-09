@@ -7,7 +7,7 @@
 							<div id="table">
 								<table>
 									<tr class="title">
-										<td>Title 1</td>
+										<td>Total </td>
 										<td>Title 2</td>
 										<td>Title 3</td>
 									</tr>

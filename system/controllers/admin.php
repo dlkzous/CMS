@@ -1,7 +1,8 @@
 <?
 
 function admin_index(){
-	load_view('main', array(), false, true);
+	$data['name'] = get_session('user_name');
+	load_view('main', $data, false, true);
 }
 
 ?>
