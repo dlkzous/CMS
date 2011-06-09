@@ -11,7 +11,24 @@ function admin_articles(){
 }
 
 function admin_users(){
+	load_model('admin');
+	load_helper('form');
+	
 	$data['name'] = get_session('user_name');
+	
+	if(form_submitted()){
+		$newuser['id'] = $_POST['id'];
+		$newuser['user'] = array();
+		foreach($_POST as $key => $input){
+			//skip unused values
+			if($key == "submit_check" || $key == "submit" || $key == "id") continue;
+			$newuser['user'][$key] = $input;
+		}
+		model_exec('admin', 'update_user', $newuser);
+		$data['save_id'] = $_POST['id'];
+	}
+	
+	$data['users'] = model_exec('admin', 'get_all_users');
 	load_view('users', $data, false, true);
 }
 

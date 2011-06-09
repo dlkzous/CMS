@@ -30,13 +30,6 @@
 							</form>
 						</div> 
 					</div>
-					<div id="menu">
-						<ul>
-							<li class="title"><a href="#">Quick Links</a></li>
-							<li><a href="#">Link1</a></li>
-							<li><a href="#">Link2</a></li>
-							<li><a href="#">Link3</a></li>
-						</ul>
-					</div>
+					<? load_view('quicklinks', array(), true, true); ?>
 			</div>
 				<div class="clear"></div>

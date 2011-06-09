@@ -30,6 +30,6 @@
 							</form>
 						</div> 
 					</div>
-					<? load_view('quicklinks')
+					<? load_view('quicklinks', array(), true, true); ?>
 			</div>
 				<div class="clear"></div>

@@ -293,11 +293,10 @@ legend span {
 }
 
 input, textarea {
-	padding:0.15em;
-	width:10em;
+	width:7.5em;
 	border:1px solid #ddd;
 	background:#fafafa;
-	font:bold 0.95em arial, sans-serif;
+	font:0.8em arial, sans-serif;
 	-moz-border-radius:0.4em;
 	-khtml-border-radius:0.4em;
 }
@@ -366,4 +365,8 @@ fieldset {
 
 input.default {
 	color:#bbb;
+}
+
+small {
+	font-size:0.5em;
 }

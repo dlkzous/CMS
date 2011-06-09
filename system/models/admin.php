@@ -12,4 +12,13 @@ function model_admin_save_all_settings($data){
 	}
 }
 
+function model_admin_get_all_users(){
+	$result = db_query("SELECT * FROM `users`");
+	return db_toarray($result);
+}
+
+function model_admin_update_user($id, $data){
+	db_query("UPDATE `users` SET `value`='$value' WHERE `id`='$id'");
+}
+
 ?>
