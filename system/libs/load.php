@@ -43,14 +43,12 @@ function load_helper($helper){
 
 //load a controller
 function load_controller($controller){
-	if(file_exists(LOCAL_DIR."system/controllers/$controller.php")){
-		$GLOBALS['controller_exists'] = "1";
-		require(LOCAL_DIR."system/controllers/$controller.php");
-	}else{
-		$GLOBALS['controller_exists'] = "0";
-		$error_message = "This page cannot be found on the server.";
-		$template = $_SESSION['template'];
-		require(LOCAL_DIR."system/views/$template/error.php");
+	require(LOCAL_DIR."system/controllers/$controller.php");
+		
+	//check if the controller contains a constructer
+	if(function_exists($controller."_construct")){
+		//execute the constructor
+		call_user_func($controller."_construct");
 	}
 }
 

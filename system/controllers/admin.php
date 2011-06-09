@@ -1,7 +1,15 @@
 <?
 
-function admin_index(){
+function admin_construct(){
 	load_model('admin');
+	load_helper('form');
+	load_helper('admin');
+	
+	//check if user is admin
+	admin_check();
+}
+
+function admin_index(){
 	$data['name'] = get_session('user_name');
 	
 	$data['dash']['Users']['Total'] = model_exec('admin', 'get_user_count');
@@ -13,6 +21,8 @@ function admin_index(){
 	$data['dash']['Articles']['Published'] = model_exec('admin', 'get_article_count', array(0));
 	$data['dash']['Articles']['UnPublished'] = model_exec('admin', 'get_article_count', array(1));
 	$data['dash']['Articles']['Revisions'] = model_exec('admin', 'get_rev_count');
+	$data['dash']['Articles']['Categories'] = model_exec('admin', 'get_category_count');
+	$data['dash']['Articles']['Tags'] = model_exec('admin', 'get_tag_count');
 	
 	load_view('main', $data, false, true);
 }
@@ -23,9 +33,6 @@ function admin_articles(){
 }
 
 function admin_users(){
-	load_model('admin');
-	load_helper('form');
-	
 	$data['name'] = get_session('user_name');
 	
 	if(form_submitted()){
@@ -44,11 +51,7 @@ function admin_users(){
 	load_view('users', $data, false, true);
 }
 
-function admin_settings(){
-	load_model('admin');
-	load_helper('admin');
-	load_helper('form');
-	
+function admin_settings(){	
 	$data['name'] = get_session('user_name');
 		
 	if(form_submitted()){
