@@ -32,11 +32,12 @@ function article_submit()
 		$data['content'] = $_POST['elm1'];
 		if($data['content'] == "")
 		{
-			$formError['elm1'] = "Category cannot be empty.";
+			$formError['elm1'] = "Content cannot be empty.";
 			$data['errors'] = true;
 		}
 		
 		$data['tags'] = $_POST['tags'];
+		$data['categoryId'] = $_POST['categoryId'];
 		
 		// If errors refresh page.
 		if($data['errors'])
@@ -45,9 +46,20 @@ function article_submit()
 			load_view('submitArticle',$data);
 		}else{
 			$article['title'] = $data['title'];
-			$article['category'] = $data['category'];
+			$article['category'] = $data['categoryId'];
 			$article['content'] = $data['content'];
-			$article['tags'] = $data['tags'];
+			$tagsList = $data['tags'];
+			$result = model_exec('article','submit');
+			if($result == true)
+			{
+				unset($data);
+				$data['message'] = "Article successfully submitted.";
+				//var_dump($data);
+			}else{
+				unset($data);
+				$data['message'] = "Error in submission process. Please try again later.";
+				//var_dump($data);
+			}
 			
 		}
 	}	
