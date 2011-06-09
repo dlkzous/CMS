@@ -65,8 +65,8 @@ function article_submit()
 						{
 							$tagName['name'] = $tName;
 							$tagName['articleId'] = $result;
-							$result = model_exec('article','addTag', $tagName);
-							if(!$result)
+							$tagResult = model_exec('article','addTag', $tagName);
+							if(!$tagResult)
 							{
 								$data['message'] .= "Tag ".$tag." not added for article";
 							}
