@@ -1,6 +1,6 @@
 			<div id="center">
 					<div id="body" style="width:100%">
-						<div id="trace">Home :: Settings</div>
+						<div id="trace">Home :: Users</div>
 						<div class="line"></div>
 						<div id="maincontent">
 							<div id="table">
@@ -13,7 +13,7 @@
 										<td>Password</td>
 										<td>Location</td>
 										<td>Type</td>
-										<td colspan="2">Actions</td>
+										<td>Actions</td>
 									</tr>
 									<? foreach($users as $user) { ?>
 										<tr>
@@ -34,7 +34,6 @@
 													</select>
 												</td>
 												<td><input type="submit" class="button blue" value="Save"/></td>
-												<td><a href="" class="button blue">Delete</a></td>
 											</form>
 										</tr>
 									<? } ?>

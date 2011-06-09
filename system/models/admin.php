@@ -18,7 +18,8 @@ function model_admin_get_all_users(){
 }
 
 function model_admin_update_user($id, $data){
-	db_query("UPDATE `users` SET `value`='$value' WHERE `id`='$id'");
+	extract($data);
+	db_query("UPDATE  `users` SET  `email` = '$email',`username` =  '$username',`password` =  '$password', `location` =  '$location', `type` =  '$type' WHERE  `id`='$id'");
 }
 
 ?>
