@@ -7,7 +7,6 @@ function load_view($view, $data = array(), $ajax = false, $admin = false){
 		if($admin){
 				admin_check();
 				$template = 'admin';
-				dump($template);
 		}
 		
 		if(file_exists(LOCAL_DIR."system/views/$template/$view.php"))
@@ -45,10 +44,10 @@ function load_helper($helper){
 //load a controller
 function load_controller($controller){
 	if(file_exists(LOCAL_DIR."system/controllers/$controller.php")){
-		$_SESSION['controller_exists'] = "1";
+		$GLOBALS['controller_exists'] = "1";
 		require(LOCAL_DIR."system/controllers/$controller.php");
 	}else{
-		$_SESSION['controller_exists'] = "0";
+		$GLOBALS['controller_exists'] = "0";
 		$error_message = "This page cannot be found on the server.";
 		$template = $_SESSION['template'];
 		require(LOCAL_DIR."system/views/$template/error.php");

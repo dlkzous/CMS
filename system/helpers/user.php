@@ -9,8 +9,8 @@ function logged_in(){
 
 //return user type
 function user_type(){
-	if(isset($_SESSION['type'])){
-		return $_SESSION['type'];
+	if(isset($_SESSION['user_type'])){
+		return $_SESSION['user_type'];
 	}else return false;
 }
 
@@ -29,14 +29,10 @@ function logged_check(){
 }
 
 function admin_check(){
-	dump($_SESSION);
 	logged_check();
-	dump("ADMIN0");
 	if(user_type() != ADMIN){
 		redirect('');
-		dump("ADMIN1");
 	}
-	dump("ADMIN2");
 }
 
 ?>

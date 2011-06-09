@@ -44,7 +44,7 @@
 		    }
 	});
 	</script>
-	<? if($pageJs){ ?>
+	<? if(isset($pageJs)){ ?>
 	<script src="<?= JS_PATH. $js ?>"></script>
 	<? } ?>
 	
