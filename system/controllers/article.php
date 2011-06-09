@@ -36,7 +36,7 @@ function article_submit()
 			$data['errors'] = true;
 		}
 		
-		$data['tags'] = $_POST['tags'];
+		$data['tags'] = trim($_POST['tags']);
 		$data['categoryId'] = $_POST['categoryId'];
 		
 		// If errors refresh page.
