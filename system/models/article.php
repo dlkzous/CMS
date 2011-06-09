@@ -107,7 +107,7 @@ function model_article_getDetails($articleId)
 			}
 			
 			// Get tags
-			$tagResult = db_query("SELECT * FROM `article_tags` WHERE `article_id`='$articleId'");
+			$tagResult = db_query("SELECT * FROM `article_tags` WHERE `article_id`='".$article['id']."'");
 			if($tagResult)
 			{
 				$tagList = "";
