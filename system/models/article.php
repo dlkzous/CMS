@@ -84,17 +84,20 @@ function model_article_getDetails($articleId)
 {
 	// Get latest revision id
 	$revisionResult = db_query("SELECT MAX(id) as id FROM `article_revisions` WHERE `article_id`='$articleId'");
-	if($revisionResult)
+	$num_rows = mysql_num_rows($revisionResult);
+	if($num_rows)
 	{
 		$revision = mysql_fetch_array($revisionResult);
 		$revisionId = $revision['id'];
 		// Get latest revision details
 		$articleResult = db_query("SELECT * FROM `article_revisions` WHERE `article_id`='$articleId'  && `id`='$revisionId'");
-		if($articleResult)
+		$num_rows = mysql_num_rows($articleResult);
+		if($num_rows)
 		{
 			$article = mysql_fetch_array($articleResult);
 			$details['title'] = $article['title'];
 			$details['content'] = $article['content'];
+			$details['categoryId'] = $article['category_id'];
 			// Get category name
 			$categoryResult = db_query("SELECT * FROM `article_categories` WHERE `id`='".$article['category_id']."'");
 			if($categoryResult)
@@ -119,6 +122,7 @@ function model_article_getDetails($articleId)
 					}
 				}
 				$details['tags'] = $tagList;
+				$details['articleId'] = $articleId;
 			}
 			return $details;
 		}else{

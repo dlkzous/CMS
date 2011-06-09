@@ -89,14 +89,25 @@ function article_submit()
 
 function article_edit($articleId)
 {
-	load_model('article');
-	$data['articleId'] = $articleId;
-	$result = model_exec('article','getDetails', $data);
-	if($result)
+	// Check if user is logged in
+	logged_check();
+	
+	load_helper('form');
+	if(!form_submitted())
 	{
-		var_dump($result);
+		load_model('article');
+		$data['articleId'] = $articleId;
+		$result = model_exec('article','getDetails', $data);
+		if($result)
+		{
+			$result['pageJs'] = true;
+			$result['js'] = 'submitArticle.js';
+			$result['errors'] = false;
+			load_view('editArticle',$result);
+		}else{
+			echo "Not Found";
+		}
 	}else{
-	echo "not Found";
 	}
 }
 
