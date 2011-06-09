@@ -1,4 +1,4 @@
-<form action="<?=BASE_URL?>article/edit" method="post">
+<form action="<?=BASE_URL?>article/edit/<?= $articleId ?>" method="post">
 	<input type="hidden" value="true" name="submit_check"><br/>
 	Article Title : <input type="text" name="title" value="<?= $title ?>"><br/>
 	Article Category : <input type="text" name="category" id="category" value="<?= $category ?>"><br/>

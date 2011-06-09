@@ -153,6 +153,7 @@ function article_edit($articleId)
 			{
 				unset($data);
 				$data['message'] = "Article successfully submitted.";
+				$tagDeleteResult = db_query("DELETE FROM `article_tags` WHERE `article_id`='$result'");
 				if($tagsList != "")
 				{
 					$tags = split(",",$tagsList);
