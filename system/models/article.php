@@ -18,13 +18,15 @@ function model_article_getCategories()
 
 function model_article_submit($title, $userId, $categoryId, $content)
 {
-	$articleId = db_query("INSERT INTO `cmsdb`.`article` (`id`, `user_id`, `category_id`, `content`, `date`, `title`, `published`) VALUES (NULL, '$userId', '$categoryId', '".addslashes($content)."', CURRENT_TIMESTAMP, '".addslashes($title)."', 0);");
-	if($articleId)
+	$articleResult = db_query("INSERT INTO `cmsdb`.`article` (`id`, `user_id`, `category_id`, `content`, `date`, `title`, `published`) VALUES (NULL, '$userId', '$categoryId', '".addslashes($content)."', CURRENT_TIMESTAMP, '".addslashes($title)."', 0);");
+	$articleId = mysql_insert_id();
+	if($articleResult)
 	{
+		//echo "INSERT INTO `cmsdb`.`article_revisions` (`article_id`, `revision_number`, `original_article_id`) VALUES ('$articleId', 1 , $articleId);";
 		$result = db_query("INSERT INTO `cmsdb`.`article_revisions` (`article_id`, `revision_number`, `original_article_id`) VALUES ('$articleId', 1 , $articleId);");
 		if($result)
 		{
-			return $result;
+			return $articleId;
 		}else{
 			return false;
 		}
@@ -36,19 +38,20 @@ function model_article_submit($title, $userId, $categoryId, $content)
 function model_article_addTag($name, $articleId)
 {
 	// Check if tag exists in the database.
-	$tag = db_query("SELECT 'id' FROM `tags` WHERE `name`= '$name'");
-	$num_rows = mysql_num_rows($tag);
+	$tagResult = db_query("SELECT 'id' FROM `tags` WHERE `name`= '$name'");
+	$num_rows = mysql_num_rows($tagResult);
 	if($num_rows){
 		// If it does, check if article is tagged with this tag.
-		$result = db_query("SELECT * FROM `article_tags` WHERE `article_id`='$articleId' && `tag_id`='$tag['id']'");
+		$tag = mysql_fetch_array($tagResult);
+		$result = db_query("SELECT * FROM `article_tags` WHERE `article_id`='$articleId' && `tag_id`='".$tag['id']."'");
 		$num_rows = mysql_num_rows($result);
-		if($result)
+		if($num_rows)
 		{
 			// do nothing if article already tagged with this tag
 			return true;
 		}else{
 			// else tag with this tag
-			$result = db_query("INSERT INTO `cmsdb`.`article_tags` (`article_id`, `tag_id`) VALUES ('$articleId', '$tag['id']');");
+			$result = db_query("INSERT INTO `cmsdb`.`article_tags` (`article_id`, `tag_id`) VALUES ('$articleId', '".$tag['id']."');");
 			if($result)
 			{
 				return true;
@@ -58,8 +61,9 @@ function model_article_addTag($name, $articleId)
 		}
 	}else{
 		// If tag does not exist, add tag to db and then tag article
-		$tagId = db_query("INSERT INTO `cmsdb`.`tags` (`id`, `name`) VALUES (NULL, '$name');");
-		if($tagId)
+		$tagResult = db_query("INSERT INTO `cmsdb`.`tags` (`id`, `name`) VALUES (NULL, '$name');");
+		$tagId = mysql_insert_id();
+		if($tagResult)
 		{
 			$result = db_query("INSERT INTO `cmsdb`.`article_tags` (`article_id`, `tag_id`) VALUES ('$articleId', '$tagId');");
 			if($result)

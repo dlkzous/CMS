@@ -51,20 +51,28 @@ function article_submit()
 			$article['content'] = $data['content'];
 			$tagsList = $data['tags'];
 			$result = model_exec('article','submit', $article);
-			if($result)
+			if($result != 0)
 			{
 				unset($data);
+				$data['message'] = "Article successfully submitted.";
 				if($tagsList != "")
 				{
 					$tags = split(",",$tagsList);
 					foreach($tags as $tag)
 					{
-						$tagName['name'] = $tag;
-						$tagName['articleId'] = $result;
-						$result = model_exec('article','addTag', $tagName);
+						if($tag != "")
+						{
+							$tagName['name'] = $tag;
+							$tagName['articleId'] = $result;
+							$result = model_exec('article','addTag', $tagName);
+							if(!$result)
+							{
+								$data['message'] .= "Tag ".$tag." not added for article";
+							}
+						}
 					}
 				}else{
-					$data['message'] = "Article successfully submitted.";
+					$data['message'] = "Article successfully submitted without tags.";
 				}
 				
 				var_dump($data);
