@@ -14,6 +14,12 @@ function user_type(){
 	}else return false;
 }
 
+function user_id(){
+	if(isset($_SESSION['user_id'])){
+		return $_SESSION['user_id'];
+	}else return false;
+}
+
 // check if user is logged in and redirect to home
 function unlogged_check(){
 	if(logged_in()){

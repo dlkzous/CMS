@@ -12,7 +12,7 @@ function build_input($name, $value, $type){
 					$options[] = "enabled";
 					$options[] = "disabled";
 				}
-				$builtstring = build_dropdown($options);
+				$builtstring = build_dropdown($name, $options, $value);
 				break;
 		case "text":
 				$builtstring = "<textarea name='$name'>$value</textarea>";
@@ -26,10 +26,12 @@ function build_input($name, $value, $type){
 }
 
 //function to build dropdown
-function build_dropdown($options){
-	$builtstring = "<select>";
+function build_dropdown($name, $options, $default){
+	$builtstring = "<select name='$name'>";
 	foreach($options as $value){
-		$builtstring .= "<option value='$value'>$value</option>";
+		$s = "";
+		if($value == $default) $s = "selected";
+		$builtstring .= "<option value='$value' $s>$value</option>";
 	}
 	$builtstring .= "</select>";
 	

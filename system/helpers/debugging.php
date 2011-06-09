@@ -4,6 +4,7 @@
 function dump($item)
 {
     $printString = '<pre>' . print_r($item, true) . '</pre>';
+    echo $printString;
 }
 
 //Print site input/output produced to debug
@@ -17,7 +18,7 @@ function debug($die=false){
 	echo "POST<br>";
 	dump($_POST);
 	
-	if($die) exit();	
+	exit();
 }
 
 ?>
