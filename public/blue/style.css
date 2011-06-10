@@ -50,13 +50,14 @@ q:before, q:after {
 /* END OF CSS RESET  */
 
 body {
-	font-family: times, serif;
+	font-family: Courier, monospace;
 	background: #000;
 	text-align: center;
 }
 
 small{
-	font-size:0.6em;
+	font-size:0.8em;
+	color:#fff;
 }
 
 #content {
@@ -124,12 +125,12 @@ small{
 }
 
 #center #body{
-	float: left;
+	float: right;
 	width:75%;
 }
 
 #center #menu{
-	float: right;
+	float: left;
 	width:25%;
 	text-indent:20px;
 }
@@ -148,7 +149,7 @@ small{
 }
 
 #center #menu li:first-child{
-	background:#333;
+	background:#456;
 	height:25px;
 	padding-top:9px;
 }
@@ -180,7 +181,7 @@ small{
 }
 
 #footer{
-	font-size:11px;
+	font-size:16px;
 }
 
 /* Common elements 
