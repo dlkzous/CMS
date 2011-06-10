@@ -13,7 +13,7 @@
 										<tr>
 											<td>
 												<div>
-													<?= truncate(strip_tags($article['info']['content']), 50); ?>
+													<?= truncate(strip_tags($article['info']['content']), 70); ?>
 													<br/>
 													<a href="<?=BASE_URL?>main/view/<?=$article['article_id']?>" class="button blue">Read More...</a>
 												</div>
