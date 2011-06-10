@@ -15,7 +15,13 @@
 		<div id="content">
 			<div id="header">
 				<div id="logo"><?= model_exec('global', 'get_setting', array('title')) ?></div>
-				<div id="status">Register | Login</div>
+				<div id="status">
+					<? if(logged_in()) {?>
+						Welcome <?= $name ?> | <a href="<?=BASE_URL?>user/logout">Logout <? if(mod()) { ?>  <? }?>
+					<? } else { ?>
+						Welcome guest | <a href="<?=BASE_URL?>user">Login/Register 
+					<? }?>
+				</div>
 				<div id="topmenu">
 					<ul>
 						<li class="roundtop"><a href="<?= BASE_URL ?>">Home</a></li>

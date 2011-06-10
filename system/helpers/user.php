@@ -46,4 +46,9 @@ function admin(){
 	else return false;
 }
 
+function mod(){
+	if(user_type() >= MOD) return true;
+	else return false;
+}
+
 ?>
