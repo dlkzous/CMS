@@ -208,19 +208,20 @@ table{
 tr.title{
 	background: url(img/section_header.jpg);
 	height:35px;
-	font-size:15px;
+	font-size:17px;
 	padding-top:20px;
+	color:#fff;
 }
 
 tr{
 	text-indent:20px;
 }
 
-tr:nth-child(odd){ 
+tr:nth-child(even){ 
 	background-color:#eee; 
 }
 
-tr:nth-child(even){
+tr:nth-child(odd){
 	background-color:#fff;
 }
 
