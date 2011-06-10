@@ -35,14 +35,23 @@ function user_register(){
 	load_helper('form');
 	$data = array();
 	if(form_submitted()){
-		load_model('user');	
-		$data['name'] = $_POST['name'];
-		$data['email'] = $_POST['email'];
-		$data['username'] = $_POST['username'];
-		$data['password'] = $_POST['password'];
-		$data['location'] = $_POST['location'];
-		model_exec('user', 'register', $data);
-		$data['notice'] = "Registration complete!, Please login to continue";
+		load_model('user');
+		$check = true;
+		foreach($_POST as $val){
+			if(empty($val)) $check = false;
+		}
+		
+		if($check){
+			$data['name'] = $_POST['name'];
+			$data['email'] = $_POST['email'];
+			$data['username'] = $_POST['username'];
+			$data['password'] = $_POST['password'];
+			$data['location'] = $_POST['location'];
+			model_exec('user', 'register', $data);
+			$data['notice'] = "Registration complete!, Please login to continue";
+		}else{
+			$data['notice'] = "Please complete all fields to register!";
+		}
 	}
 	load_view("login", $data);
 }
