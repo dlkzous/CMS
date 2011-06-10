@@ -137,12 +137,16 @@ function model_admin_get_category($id){
 //delete a category and convert all revisions/articles
 //based on that category to uncategorised
 function model_admin_delete_category($id){
-	
+	$query = "DELETE FROM `cmsdb`.`article_categories` WHERE `article_categories`.`id` = '$id'";
+	db_query($query);
+	$update = "UPDATE  `cmsdb`.`article_revisions` SET  `category_id` =  '0' WHERE  `article_revisions`.`category_id` ='$id'";
+	db_query($update);
 }
 
 // add a category to the system
 function model_admin_add_category($category){
-	
+	$query = "INSERT INTO `cmsdb`.`article_categories` (`id`, `name`) VALUES (NULL, '$category')";
+	return db_query($query);
 }
 
 ?>

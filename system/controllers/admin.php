@@ -104,7 +104,14 @@ function admin_settings(){
 
 // admin manage categories
 function admin_categories($category = false){
+	
 	$data['name'] = get_session('user_name');
+	
+	if($category !== false){
+		model_exec('admin', 'delete_category', array($category));
+	}else if(form_submitted()){
+		model_exec('admin', 'add_category', array($_POST['category']));
+	}
 	
 	$data['categories'] = model_exec('admin', 'get_all_categories');
 	load_view('categories', $data, false, true);

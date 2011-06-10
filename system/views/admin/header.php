@@ -57,3 +57,4 @@
 				</div>
 			</div>
 			<div class="clear"></div>
+			<? if(isset($notice)) echo $notice ?>

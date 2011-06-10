@@ -29,7 +29,9 @@ function model_article_submit($title,$userId, $categoryId, $content, $articleId 
 		$revisionId = mysql_insert_id();
 		if($result)
 		{
-			return $revisionId;
+			$ret['revisionId'] = $revisionId;
+			$ret['articleId'] = $articleId;
+			return $ret;
 		}
 	}
 	//if database entry fails return false
@@ -80,17 +82,10 @@ function model_article_addTag($name, $articleId)
 	}
 }
 
-function model_article_getDetails($articleId)
+function model_article_getDetails($revisionId)
 {
-	// Get latest revision id
-	$revisionResult = db_query("SELECT MAX(id) as id FROM `article_revisions` WHERE `article_id`='$articleId'");
-	$num_rows = mysql_num_rows($revisionResult);
-	if($num_rows)
-	{
-		$revision = mysql_fetch_assoc($revisionResult);
-		$revisionId = $revision['id'];
 		// Get latest revision details
-		$articleResult = db_query("SELECT * FROM `article_revisions` WHERE `article_id`='$articleId'  && `id`='$revisionId'");
+		$articleResult = db_query("SELECT * FROM `article_revisions` WHERE `id`='$revisionId'");
 		$num_rows = mysql_num_rows($articleResult);
 		if($num_rows)
 		{
@@ -122,14 +117,11 @@ function model_article_getDetails($articleId)
 					}
 				}
 				$details['tags'] = $tagList;
-				$details['articleId'] = $articleId;
+				$details['articleId'] = $article['article_id'];
 			}
 			return $details;
 		}else{
 			return false;
 		}
-	}else{
-		return false;
-	}
 }
 ?>

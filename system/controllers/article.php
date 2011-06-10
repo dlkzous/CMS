@@ -55,10 +55,10 @@ function article_submit()
 			$article['content'] = $data['content'];
 			$tagsList = $data['tags'];
 			$result = model_exec('article','submit', $article);
-			if($result != 0)
+			if($result['revisionId'] != 0)
 			{
 				unset($data);
-				$data['message'] = "Article successfully submitted.";
+				$data['notice'] = "Article successfully submitted.";
 				if($tagsList != "")
 				{
 					$tags = split(",",$tagsList);
@@ -68,22 +68,22 @@ function article_submit()
 						if($tName != "")
 						{
 							$tagName['name'] = $tName;
-							$tagName['articleId'] = $result;
+							$tagName['articleId'] = $result['revisionId'];
 							$tagResult = model_exec('article','addTag', $tagName);
 							if(!$tagResult)
 							{
-								$data['message'] .= "Tag ".$tag." not added for article";
+								$data['notice'] .= "Tag ".$tag." not added for article";
 							}
 						}
 					}
 				}else{
-					$data['message'] = "Article successfully submitted without tags.";
+					$data['notice'] = "Article successfully submitted without tags.";
 				}
 				
-				var_dump($data);
+				redirect("admin/revisions/".$result['articleId']);
 			}else{
 				unset($data);
-				$data['message'] = "Error in submission process. Please try again later.";
+				$data['notice'] = "Error in submission process. Please try again later.";
 				var_dump($data);
 			}
 			
@@ -91,18 +91,19 @@ function article_submit()
 	}	
 }
 
-function article_edit($articleId)
+function article_edit($revisionId)
 {
 	load_helper('form');
 	if(!form_submitted())
 	{
-		$data['articleId'] = $articleId;
-		$result = model_exec('article','getDetails', $data);
+		$rev['revisionId'] = $revisionId;
+		$result = model_exec('article','getDetails', $rev);
 		if($result)
 		{
 			$result['pageJs'] = true;
 			$result['js'] = 'submitArticle.js';
 			$result['errors'] = false;
+			$result['name'] = get_session('user_name');	
 			load_view('editArticle',$result, false, true);
 		}else{
 			echo "Not Found";
@@ -139,6 +140,7 @@ function article_edit($articleId)
 		if($data['errors'])
 		{
 			$data['formError'] = $formError;
+			$data['name'] = get_session('user_name');
 			load_view('submitArticle',$data, false, true);
 		}else{
 			$article['title'] = $data['title'];
@@ -148,10 +150,10 @@ function article_edit($articleId)
 			$article['articleId'] = $data['articleId'];
 			$tagsList = $data['tags'];
 			$result = model_exec('article','submit', $article);
-			if($result != 0)
+			if($result['revisionId'] != 0)
 			{
 				unset($data);
-				$data['message'] = "Article successfully submitted.";
+				$data['notice'] = "Article successfully submitted.";
 				$tagDeleteResult = db_query("DELETE FROM `article_tags` WHERE `article_id`='$result'");
 				if($tagsList != "")
 				{
@@ -162,22 +164,22 @@ function article_edit($articleId)
 						if($tName != "")
 						{
 							$tagName['name'] = $tName;
-							$tagName['articleId'] = $result;
+							$tagName['articleId'] = $result['revisionId'];
 							$tagResult = model_exec('article','addTag', $tagName);
 							if(!$tagResult)
 							{
-								$data['message'] .= "Tag ".$tag." not added for article";
+								$data['notice'] .= "Tag ".$tag." not added for article";
 							}
 						}
 					}
 				}else{
-					$data['message'] = "Article successfully submitted without tags.";
+					$data['notice'] = "Article successfully submitted without tags.";
 				}
 				
-				var_dump($data);
+				redirect("admin/revisions/".$result['articleId']);
 			}else{
 				unset($data);
-				$data['message'] = "Error in submission process. Please try again later.";
+				$data['notice'] = "Error in submission process. Please try again later.";
 				var_dump($data);
 			}
 			
