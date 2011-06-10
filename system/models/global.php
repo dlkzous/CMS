@@ -28,4 +28,15 @@ function model_global_get_articles_category($categoryId){
 	return db_toarray($result);
 }
 
+function model_global_get_comments($articleId){
+	$query = "SELECT * FROM `cmsdb`.`comments` WHERE `article_id`='$articleId'";
+	$result = db_query($query);
+	return db_toarray($result);
+}
+
+function model_global_add_comment($userId, $articleId, $comment){
+	$query = "INSERT INTO `cmsdb`.`comments` (`id`, `user_id`, `article_id`, `comment`, `date`) VALUES (NULL, '$userId', '$articleId', '$comment', CURRENT_TIMESTAMP);";
+	return db_query($query);
+}
+
 ?>
