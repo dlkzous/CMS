@@ -7,7 +7,7 @@ function model_article_getCategories()
 	$num_rows = mysql_num_rows($result);
 	if($num_rows){
 		$categories = array();
-		while($row = mysql_fetch_array($result))
+		while($row = mysql_fetch_assoc($result))
 		{
 			array_push($categories, $row);
 		}
@@ -43,7 +43,7 @@ function model_article_addTag($name, $articleId)
 	$num_rows = mysql_num_rows($tagResult);
 	if($num_rows){
 		// If it does, check if article is tagged with this tag.
-		$tag = mysql_fetch_array($tagResult);
+		$tag = mysql_fetch_assoc($tagResult);
 		$result = db_query("SELECT * FROM `article_tags` WHERE `article_id`='$articleId' && `tag_id`='".$tag['id']."'");
 		$num_rows = mysql_num_rows($result);
 		if($num_rows)
@@ -87,14 +87,14 @@ function model_article_getDetails($articleId)
 	$num_rows = mysql_num_rows($revisionResult);
 	if($num_rows)
 	{
-		$revision = mysql_fetch_array($revisionResult);
+		$revision = mysql_fetch_assoc($revisionResult);
 		$revisionId = $revision['id'];
 		// Get latest revision details
 		$articleResult = db_query("SELECT * FROM `article_revisions` WHERE `article_id`='$articleId'  && `id`='$revisionId'");
 		$num_rows = mysql_num_rows($articleResult);
 		if($num_rows)
 		{
-			$article = mysql_fetch_array($articleResult);
+			$article = mysql_fetch_assoc($articleResult);
 			$details['title'] = $article['title'];
 			$details['content'] = $article['content'];
 			$details['categoryId'] = $article['category_id'];
@@ -102,7 +102,7 @@ function model_article_getDetails($articleId)
 			$categoryResult = db_query("SELECT * FROM `article_categories` WHERE `id`='".$article['category_id']."'");
 			if($categoryResult)
 			{
-				$category = mysql_fetch_array($categoryResult);
+				$category = mysql_fetch_assoc($categoryResult);
 				$details['category'] = $category['name'];
 			}
 			
@@ -111,13 +111,13 @@ function model_article_getDetails($articleId)
 			if($tagResult)
 			{
 				$tagList = "";
-				while($tags = mysql_fetch_array($tagResult))
+				while($tags = mysql_fetch_assoc($tagResult))
 				{
 					$tagId = $tags['tag_id'];
 					$tagNameResult = db_query("SELECT * FROM `tags` WHERE `id`='$tagId'");
 					if($tagNameResult)
 					{
-						$tagName = mysql_fetch_array($tagNameResult);
+						$tagName = mysql_fetch_assoc($tagNameResult);
 						$tagList .= $tagName['name'].", ";
 					}
 				}

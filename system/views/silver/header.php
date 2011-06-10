@@ -45,7 +45,7 @@
 	});
 	</script>
 	<? if(isset($pageJs)){ ?>
-	<script src="<?= JS_PATH. $js ?>"></script>
+		<script src="<?= JS_PATH. $js ?>"></script>
 	<? } ?>
 	
 	<link rel="stylesheet" href="<?= JS_PATH. 'autocomplete/jquery.autocomplete.css' ?>" type="text/css" />

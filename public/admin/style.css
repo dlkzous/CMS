@@ -145,7 +145,8 @@ body {
 }
 
 #table{
-	width:600px;
+	width:100%;
+	font-size:0.8em;
 }
 
 #center #menu li:first-child a{
@@ -186,15 +187,23 @@ table{
 	width:100%;
 }
 
+.center{
+	text-align:center;
+}
+
 tr.title{
 	background: url(img/section_header.jpg);
 	height:35px;
-	font-size:15px;
+	font-size:13px;
 	padding-top:20px;
 }
 
 tr{
 	text-indent:20px;
+}
+
+.center tr{
+	text-indent:0px;
 }
 
 tr:nth-child(odd){ 

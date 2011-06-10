@@ -16,4 +16,11 @@ function model_user_login($username, $password){
 		return false;
 }
 
+function model_user_get_details($id){
+	$query = "SELECT * FROM `users` WHERE `id`='$id'";
+	$result = db_query($query);
+	$first_row = mysql_fetch_assoc($result);
+	return $first_row;
+}
+
 ?>

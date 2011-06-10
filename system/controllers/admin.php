@@ -27,18 +27,36 @@ function admin_index(){
 	load_view('main', $data, false, true);
 }
 
-function admin_articles(){
+function admin_published($articleId = false){
 	$data['name'] = get_session('user_name');
+	
+	if($articleId !== false)
+	{
+		$data['articles'] = model_exec('admin', 'unpublish_article', array($articleId));
+		$data['notice'] = "Article Unpublished";
+	}
 	
 	$data['articles'] = model_exec('admin', 'get_published_articles');
-	load_view('articles', $data, false, true);
+		
+	foreach($data['articles'] as $key => $art){
+		$data['articles'][$key]['revision'] = model_exec('admin', 'get_last_revision', array($art['id']));
+		$data['articles'][$key]['category'] = model_exec('admin', 'get_category', array($data['articles'][$key]['revision']['category_id']));
+		$data['articles'][$key]['user'] = model_exec('user', 'get_details', array($data['articles'][$key]['revision']['user_id']));
+	}
+	
+	load_view('articles_published', $data, false, true);
 }
 
-function admin_uarticles(){
+function admin_unpublished(){
+	load_model('user');
 	$data['name'] = get_session('user_name');
-	
 	$data['articles'] = model_exec('admin', 'get_unpublished_articles');
-	load_view('uarticles', $data, false, true);
+	foreach($data['articles'] as $key => $art){
+		$data['articles'][$key]['revision'] = model_exec('admin', 'get_last_revision', array($art['id']));
+		$data['articles'][$key]['category'] = model_exec('admin', 'get_category', array($data['articles'][$key]['revision']['category_id']));
+		$data['articles'][$key]['user'] = model_exec('user', 'get_details', array($data['articles'][$key]['revision']['user_id']));
+	}
+	load_view('articles_unpublished', $data, false, true);
 }
 
 function admin_users(){
@@ -79,8 +97,11 @@ function admin_settings(){
 	load_view('settings', $data, false, true);
 }
 
-function admin_categories($category){
+function admin_categories($category = false){
+	$data['name'] = get_session('user_name');
 	
+	$data['categories'] = model_exec('admin', 'get_all_categories');
+	load_view('categories', $data, false, true);
 }
 
 ?>

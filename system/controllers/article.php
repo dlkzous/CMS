@@ -1,12 +1,12 @@
 <?
 function article_construct(){
-	
+	//check if user is an administrator
+	admin_check();
 }
 
 function article_submit()
 {
-	// Check if user is logged in
-	logged_check();
+	$data['name'] = get_session('user_name');
 	
 	$data['pageJs'] = true;
 	$data['js'] = 'submitArticle.js';
@@ -14,7 +14,7 @@ function article_submit()
 	if(!form_submitted())
 	{
 		$data['errors'] = false;
-		load_view('submitArticle', $data);
+		load_view('submitArticle', $data, false, true);
 	}else{
 		$data['errors'] = false;
 		load_model('article');
@@ -47,7 +47,7 @@ function article_submit()
 		if($data['errors'])
 		{
 			$data['formError'] = $formError;
-			load_view('submitArticle',$data);
+			load_view('submitArticle',$data, false, true);
 		}else{
 			$article['title'] = $data['title'];
 			$article['userId'] = user_id();
@@ -107,7 +107,7 @@ function article_edit($articleId)
 			$result['pageJs'] = true;
 			$result['js'] = 'submitArticle.js';
 			$result['errors'] = false;
-			load_view('editArticle',$result);
+			load_view('editArticle',$result, false, true);
 		}else{
 			echo "Not Found";
 		}
@@ -144,7 +144,7 @@ function article_edit($articleId)
 		if($data['errors'])
 		{
 			$data['formError'] = $formError;
-			load_view('submitArticle',$data);
+			load_view('submitArticle',$data, false, true);
 		}else{
 			$article['title'] = $data['title'];
 			$article['userId'] = user_id();
