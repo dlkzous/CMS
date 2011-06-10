@@ -118,10 +118,18 @@ function model_article_getDetails($revisionId)
 				}
 				$details['tags'] = $tagList;
 				$details['articleId'] = $article['article_id'];
+				$details['date'] = $article['date'];
 			}
 			return $details;
 		}else{
 			return false;
 		}
+}
+
+function model_article_getRevision($articleId){
+	$query = "SELECT `revision_id` FROM `article` WHERE `id`='$articleId' and `published`='1'";
+	$result = db_query($query);
+	$first_row = mysql_fetch_assoc($result);
+	return $first_row['revision_id'];
 }
 ?>

@@ -1,3 +1,3 @@
 <span class="error">
-	<?= $error_message ?>
+	404 Page not found!
 </span>

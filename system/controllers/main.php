@@ -9,14 +9,30 @@ function main_construct(){
 	}
 }
 
-function main_index($category = false){
+function main_index($name = false, $category = false){
 	global $data;
 	load_model('article');
-	$data['articles'] = model_exec('global', 'get_articles');
+	if($category === false){
+		$data['articles'] = model_exec('global', 'get_articles');
+		$data['header'] = "All Articles";
+	}else{
+		$data['articles'] = model_exec('global', 'get_articles_category', array($category));
+		$data['header'] = "Articles in $name";
+	}
 	foreach($data['articles'] as $key=>$art){
 		$data['articles'][$key]['info'] = model_exec('article', 'getDetails', array($art['revision_id']));
 	}
 	load_view('main', $data);
+}
+
+function main_view($article_id){
+	global $data;
+	load_model('article');
+	
+	$revision_id = model_exec('article', 'getRevision', array($article_id));
+	$data['article'] = model_exec('article', 'getDetails', array($revision_id));
+	
+	load_view('view', $data);
 }
 
 ?>

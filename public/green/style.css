@@ -55,6 +55,10 @@ body {
 	text-align: center;
 }
 
+small{
+	font-size:0.6em;
+}
+
 #content {
 	width:1048px;
 	margin: 0px auto;

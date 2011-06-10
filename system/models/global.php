@@ -22,4 +22,10 @@ function model_global_get_articles(){
 	return db_toarray($result);
 }
 
+function model_global_get_articles_category($categoryId){
+	$query = "SELECT * FROM `article` INNER JOIN `article_revisions` ON `article`.`revision_id` = `article_revisions`.`id` WHERE `article`.`published`='1' AND `article_revisions`.`category_id`='$categoryId'";
+	$result = db_query($query);
+	return db_toarray($result);
+}
+
 ?>
