@@ -50,7 +50,7 @@ q:before, q:after {
 /* END OF CSS RESET  */
 
 body {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-family: times, serif;
 	background: #000;
 	text-align: center;
 }

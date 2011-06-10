@@ -16,7 +16,7 @@
 											<form action="<?=BASE_URL?>user/login" method="post">
 												<input type="hidden" value="true" name="submit_check"><br/>
 												username : <input type="text" name="username"><br/>
-												password : <input type="text" name="password"><br/>
+												password : <input type="password" name="password"><br/>
 												<input type="submit" class="button blue" value="Login">
 											</form>
 										</td>
@@ -27,7 +27,7 @@
 												name : <input type="text" name="name"><br/>
 												email : <input type="text" name="email"><br/>
 												username : <input type="text" name="username"><br/>
-												password : <input type="text" name="password"><br/>
+												password : <input type="password" name="password"><br/>
 												from(location) : <input type="text" name="location"><br/>
 												<input type="submit" class="button blue" value="Register">
 											</form>
