@@ -15,9 +15,9 @@ function system_construct(){
 	load_model('global');	
 	
 	//load template from database and load into session to avoid querying database on each call
-	if(!isset($_SESSION['template'])){
+	//if(!isset($_SESSION['template'])){
 		$_SESSION['template'] = model_exec('global', 'get_setting', array("template"));
-	}
+	//}
 
 	//declare global constants for template paths
 	system_define_template();
