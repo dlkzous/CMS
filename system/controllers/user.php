@@ -25,7 +25,8 @@ function user_login(){
 			//redirect user to home page
 			redirect('');
 		}else{
-			echo "Incorrect Credentials";
+			$data['notice'] = "Invalid username/password combination! Please try again.";
+			load_view("login", $data);
 		}
 	}
 }

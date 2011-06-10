@@ -15,6 +15,9 @@ function main_index($name = false, $category = false){
 	if($category === false){
 		$data['articles'] = model_exec('global', 'get_articles');
 		$data['header'] = "All Articles";
+		foreach($data['articles'] as $key=>$art){
+			$data['articles'][$key]['article_id'] = $data['articles'][$key]['id'];
+		}
 	}else{
 		$data['articles'] = model_exec('global', 'get_articles_category', array($category));
 		$data['header'] = "Articles in $name";
