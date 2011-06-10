@@ -17,9 +17,9 @@
 				<div id="logo"><?= model_exec('global', 'get_setting', array('title')) ?></div>
 				<div id="status">
 					<? if(logged_in()) {?>
-						Welcome <?= $name ?> | <a href="<?=BASE_URL?>user/logout">Logout <? if(mod()) { ?>  <? }?>
+						Welcome <?= $name ?> | <a href="<?=BASE_URL?>user/logout">Logout</a> <? if(mod()) { ?> <a href="<?=BASE_URL?>admin"> | Control Panel</a> <? }?>
 					<? } else { ?>
-						Welcome guest | <a href="<?=BASE_URL?>user">Login/Register 
+						Welcome guest | <a href="<?=BASE_URL?>user/login">Login/Register 
 					<? }?>
 				</div>
 				<div id="topmenu">

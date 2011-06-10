@@ -63,6 +63,11 @@ body {
 	position:relative;
 }
 
+#status a{
+	text-decoration:none;
+	color:#fff;
+}
+
 #header #logo {
 	font-size:30px;
 	color:#fff;

@@ -42,6 +42,11 @@ q:before, q:after {
 	content: none;
 }
 
+#status a{
+	text-decoration:none;
+	color:#fff;
+}
+
 /* END OF CSS RESET  */
 
 body {
@@ -145,7 +150,7 @@ body {
 }
 
 #table{
-	width:600px;
+	width:100%;
 }
 
 #center #menu li:first-child a{
