@@ -22,7 +22,7 @@
 											<td><?= $article['revision']['id'] ?></td>
 											<td><?= $article['date'] ?></td>
 											<td><a href="<?=BASE_URL?>admin/revisions/<?= $article['id'] ?>" class="button blue">Revisions</a></td>
-											<td><a href="<?=BASE_URL?>admin/published/<?= $article['id'] ?>" class="button blue">Unpublish</a></td>
+											<? if(admin()) { ?><td><a href="<?=BASE_URL?>admin/published/<?= $article['id'] ?>" class="button blue">Unpublish</a></td><? } ?>
 										</tr>
 									<? } ?>
 								</table>

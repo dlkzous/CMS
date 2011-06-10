@@ -1,7 +1,7 @@
 <?
 function article_construct(){
 	//check if user is an administrator
-	admin_check();
+	mod_check();
 	load_model('article');
 }
 

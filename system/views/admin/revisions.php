@@ -23,7 +23,7 @@
 											<td><?= $revision['title'] ?></td>
 											<td><?= $revision['date'] ?></td>
 											<td><a href="<?=BASE_URL?>article/edit/<?= $revision['id'] ?>" class="button blue">Edit</a></td>
-											<td><a href="<?=BASE_URL?>admin/revisions/<?= $revision['article_id'] ?>/<?= $revision['id'] ?>" class="button blue">Publish</a></td>
+											<? if(admin()) { ?><td><a href="<?=BASE_URL?>admin/revisions/<?= $revision['article_id'] ?>/<?= $revision['id'] ?>" class="button blue">Publish</a></td><? } ?>
 										</tr>
 									<? } ?>
 								</table>

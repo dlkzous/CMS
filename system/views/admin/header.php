@@ -50,9 +50,9 @@
 				<div id="topmenu">
 					<ul>
 						<li class="roundtop"><a href="<?= BASE_URL ?>admin">Dashboard</a></li>
-						<li class="roundtop"><a href="<?= BASE_URL ?>admin/users">Users</a></li>
+						<? if(admin()) { ?><li class="roundtop"><a href="<?= BASE_URL ?>admin/users">Users</a></li><? } ?>
 						<li class="roundtop"><a href="<?= BASE_URL ?>admin/published">Articles</a></li>
-						<li class="roundtop"><a href="<?= BASE_URL ?>admin/settings">Settings</a></li>
+						<? if(admin()) { ?><li class="roundtop"><a href="<?= BASE_URL ?>admin/settings">Settings</a></li><? } ?>
 					</ul>
 				</div>
 			</div>

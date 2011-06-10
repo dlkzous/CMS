@@ -34,11 +34,16 @@ function logged_check(){
 	}
 }
 
-function admin_check(){
+function mod_check(){
 	logged_check();
-	if(user_type() != ADMIN){
+	if(user_type() < MOD){
 		redirect('');
 	}
+}
+
+function admin(){
+	if(user_type() == ADMIN) return true;
+	else return false;
 }
 
 ?>

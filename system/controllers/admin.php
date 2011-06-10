@@ -5,31 +5,34 @@ function admin_construct(){
 	load_helper('form');
 	load_helper('admin');
 	
-	//check if user is admin
-	admin_check();
+	//check if user is admin or moderator
+	mod_check();
 }
 
 //admin index page / dashboard
 function admin_index(){
 	$data['name'] = get_session('user_name');
 	
-	$data['dash']['Users']['Total'] = model_exec('admin', 'get_user_count');
-	$data['dash']['Users']['Readers'] = model_exec('admin', 'get_user_count', array(USER));
-	$data['dash']['Users']['Moderators'] = model_exec('admin', 'get_user_count', array(MOD));
-	$data['dash']['Users']['Administrators'] = model_exec('admin', 'get_user_count', array(ADMIN));
-	
+	if(admin()) {
+		$data['dash']['Users']['Total'] = model_exec('admin', 'get_user_count');
+		$data['dash']['Users']['Readers'] = model_exec('admin', 'get_user_count', array(USER));
+		$data['dash']['Users']['Moderators'] = model_exec('admin', 'get_user_count', array(MOD));
+		$data['dash']['Users']['Administrators'] = model_exec('admin', 'get_user_count', array(ADMIN));
+	}
 	$data['dash']['Articles']['Total'] = model_exec('admin', 'get_article_count');
 	$data['dash']['Articles']['Published'] = model_exec('admin', 'get_article_count', array(0));
 	$data['dash']['Articles']['UnPublished'] = model_exec('admin', 'get_article_count', array(1));
 	$data['dash']['Articles']['Revisions'] = model_exec('admin', 'get_rev_count');
-	$data['dash']['Articles']['Categories'] = model_exec('admin', 'get_category_count');
-	$data['dash']['Articles']['Tags'] = model_exec('admin', 'get_tag_count');
-	
+	if(admin()) {
+		$data['dash']['Articles']['Categories'] = model_exec('admin', 'get_category_count');
+		$data['dash']['Articles']['Tags'] = model_exec('admin', 'get_tag_count');
+	}
 	load_view('main', $data, false, true);
 }
 
 // admin view published articles
 function admin_published($articleId = false){
+	load_model('user');
 	$data['name'] = get_session('user_name');
 	
 	if($articleId !== false)
@@ -73,6 +76,7 @@ function admin_users(){
 			//skip unused values
 			if($key == "submit_check" || $key == "submit" || $key == "id") continue;
 			$newuser['user'][$key] = $input;
+			$data['notice'] = "user data saved!";
 		}
 		model_exec('admin', 'update_user', $newuser);
 		$data['save_id'] = $_POST['id'];

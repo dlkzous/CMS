@@ -1,6 +1,6 @@
 			<div id="center">
 					<div id="body">
-						<div id="trace">Home :: Settings</div>
+						<div id="trace">Home :: Dashboard</div>
 						<div class="line"></div>
 						<div id="maincontent">
 							<? foreach($dash as $category => $data) { ?>

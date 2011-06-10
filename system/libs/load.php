@@ -5,7 +5,7 @@ function load_view($view, $data = array(), $ajax = false, $admin = false){
 	$template = $_SESSION['template'];
 	if(isset($_SESSION['template'])){
 		if($admin){
-				admin_check();
+				mod_check();
 				$template = 'admin';
 		}
 		

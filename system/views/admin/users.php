@@ -39,7 +39,6 @@
 									<? } ?>
 								</table>
 							</div>
-							<?if(isset($notice)) echo $notice ?>
 							</form>
 						</div> 
 					</div>
