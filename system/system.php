@@ -47,7 +47,7 @@ function system_init(){
 //define global template paths
 function system_define_template(){
 	define("IMAGE_PATH", BASE_URL ."public/".$_SESSION['template']."/images/");
-	define("CSS_PATH", BASE_URL ."public/".$_SESSION['template']."/css/");
+	define("CSS_PATH", BASE_URL ."public/".$_SESSION['template']."/");
 	define("JS_PATH", BASE_URL ."public/".$_SESSION['template']."/js/");
 }
 

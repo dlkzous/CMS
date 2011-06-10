@@ -26,7 +26,6 @@
 								</table>
 							</div>
 							<input type="submit" class="button blue" value="Save Settings"/>
-							<?if(isset($notice)) echo $notice ?>
 							</form>
 						</div> 
 					</div>
