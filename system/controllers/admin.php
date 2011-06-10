@@ -9,6 +9,7 @@ function admin_construct(){
 	admin_check();
 }
 
+//admin index page / dashboard
 function admin_index(){
 	$data['name'] = get_session('user_name');
 	
@@ -27,6 +28,7 @@ function admin_index(){
 	load_view('main', $data, false, true);
 }
 
+// admin view published articles
 function admin_published($articleId = false){
 	$data['name'] = get_session('user_name');
 	
@@ -47,6 +49,7 @@ function admin_published($articleId = false){
 	load_view('articles_published', $data, false, true);
 }
 
+//admin view unpublished articles
 function admin_unpublished(){
 	load_model('user');
 	$data['name'] = get_session('user_name');
@@ -59,6 +62,7 @@ function admin_unpublished(){
 	load_view('articles_unpublished', $data, false, true);
 }
 
+// admin manage users
 function admin_users(){
 	$data['name'] = get_session('user_name');
 	
@@ -78,6 +82,7 @@ function admin_users(){
 	load_view('users', $data, false, true);
 }
 
+// admin manage site settings
 function admin_settings(){	
 	$data['name'] = get_session('user_name');
 		
@@ -97,11 +102,31 @@ function admin_settings(){
 	load_view('settings', $data, false, true);
 }
 
+// admin manage categories
 function admin_categories($category = false){
 	$data['name'] = get_session('user_name');
 	
 	$data['categories'] = model_exec('admin', 'get_all_categories');
 	load_view('categories', $data, false, true);
+}
+
+// admin view/publish revisions
+function admin_revisions($articleId, $revisionId = false){
+	load_model('user');
+	$data['name'] = get_session('user_name');
+	
+	if($revisionId !== false){
+		model_exec('admin', 'publish_revision', array($articleId, $revisionId));
+		redirect('admin/published');
+	}else{
+		$data['revisions'] = model_exec('admin', 'get_all_revisions', array($articleId));
+	
+		foreach($data['revisions'] as $key=>$rev){
+			$data['revisions'][$key]['category'] = model_exec('admin', 'get_category', array($rev['category_id']));
+			$data['revisions'][$key]['user'] = model_exec('user', 'get_details', array($rev['user_id']));
+		}
+		load_view('revisions', $data, false, true);
+	}
 }
 
 ?>

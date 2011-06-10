@@ -46,7 +46,7 @@
 		<div id="content">
 			<div id="header">
 				<div id="logo">INF317 Admin Panel</div>
-				<div id="status">Welcome <?=$name?></div>
+				<div id="status">Welcome <?=$name?> | <a href="<?= BASE_URL ?>/user/logout">Logout</a></div>
 				<div id="topmenu">
 					<ul>
 						<li class="roundtop"><a href="<?= BASE_URL ?>admin">Dashboard</a></li>

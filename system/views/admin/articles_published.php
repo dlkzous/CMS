@@ -12,7 +12,7 @@
 										<td>Title</td>
 										<td>Latest Revision</td>
 										<td>Published On</td>
-										<td></td>
+										<td colspan="2"></td>
 									</tr>
 									<? foreach($articles as $article) { ?>
 										<tr>
@@ -21,6 +21,7 @@
 											<td><?= $article['revision']['title'] ?></td>
 											<td><?= $article['revision']['id'] ?></td>
 											<td><?= $article['date'] ?></td>
+											<td><a href="<?=BASE_URL?>admin/revisions/<?= $article['id'] ?>" class="button blue">Revisions</a></td>
 											<td><a href="<?=BASE_URL?>admin/published/<?= $article['id'] ?>" class="button blue">Unpublish</a></td>
 										</tr>
 									<? } ?>

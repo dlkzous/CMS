@@ -11,7 +11,6 @@
 										<td>User</td>
 										<td>Category</td>
 										<td>Title</td>
-										<td>Revision#</td>
 										<td></td>
 									</tr>
 									<? foreach($articles as $article) { ?>
@@ -20,8 +19,7 @@
 											<td><?= $article['user']['username'] ?></td>
 											<td><?= $article['category'] ?></td>
 											<td><?= $article['revision']['title'] ?></td>
-											<td><?= $article['revision']['id'] ?></td>
-											<td><a href="#" class="button blue">View/Publish</a></td>
+											<td><a href="<?=BASE_URL?>admin/revisions/<?= $article['id'] ?>" class="button blue">View Revisions</a></td>
 										</tr>
 									<? } ?>
 								</table>

@@ -2,6 +2,7 @@
 function article_construct(){
 	//check if user is an administrator
 	admin_check();
+	load_model('article');
 }
 
 function article_submit()
@@ -17,7 +18,6 @@ function article_submit()
 		load_view('submitArticle', $data, false, true);
 	}else{
 		$data['errors'] = false;
-		load_model('article');
 		
 		$data['title'] = $_POST['title'];
 		if($data['title'] == "")
@@ -93,13 +93,9 @@ function article_submit()
 
 function article_edit($articleId)
 {
-	// Check if user is logged in
-	logged_check();
-	
 	load_helper('form');
 	if(!form_submitted())
 	{
-		load_model('article');
 		$data['articleId'] = $articleId;
 		$result = model_exec('article','getDetails', $data);
 		if($result)
@@ -113,7 +109,6 @@ function article_edit($articleId)
 		}
 	}else{
 		$data['errors'] = false;
-		load_model('article');
 		
 		$data['title'] = $_POST['title'];
 		if($data['title'] == "")
@@ -192,13 +187,12 @@ function article_edit($articleId)
 
 function article_getCategories()
 {
-	load_model('article');
 	$categories = model_exec('article', 'getCategories');
 	
 	if($categories)
 	{
 		$data['cats'] = $categories;
-		load_view('articleCategories',$data,true);
+		load_view('articleCategories', $data, true, true);
 	}
 }
 ?>
