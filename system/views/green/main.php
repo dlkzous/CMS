@@ -3,40 +3,23 @@
 						<div id="trace">Home :: Page</div>
 						<div class="line"></div>
 						<div id="maincontent">
-							<h2>Table Example</h2>
-							<div id="table">
-								<table>
-									<tr class="title">
-										<td>Title 1</td>
-										<td>Title 2</td>
-										<td>Title 3</td>
-									</tr>
-									<tr>
-										<td>Row 1</td>
-										<td>Row 1</td>
-										<td>Row 1</td>
-									</tr>
-									<tr>
-										<td>Row 2</td>
-										<td>Row 2</td>
-										<td>Row 2</td>
-									</tr>
-									<tr>
-										<td>Row 3</td>
-										<td>Row 3</td>
-										<td>Row 3</td>
-									</tr>
-									<tr>
-										<td>Row 4</td>
-										<td>Row 4</td>
-										<td>Row 4</td>
-									</tr>
-								</table>
-								</table>
-							</div>
-							<a href="#" class="button blue">BUTTON1</a>
-							<a href="#" class="button blue">BUTTON2</a>
-							
+							<? foreach($articles as $article){ ?>
+								<div id="table">
+									<table class="border">
+										<tr class="title">
+											<td><?=$article['info']['title']?> Published on <?=$article['date']?></td>
+										</tr>
+										<tr>
+											<td>
+												<div>
+													<?= truncate($article['info']['content'], 100); ?>
+													<br/>
+													<a href="#" class="button blue">Read More...</a>
+												</div>
+											</td>
+									</table>
+								</div>
+							<? }?>
 						</div> 
 					</div>
 					<?= load_view('categories', $data, true); ?>

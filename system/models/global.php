@@ -15,4 +15,11 @@ function model_global_get_all_categories(){
 	return db_toarray($result);
 }
 
+//return all articles stored in database
+function model_global_get_articles(){
+	$query = "SELECT * FROM `article` WHERE `published`='1' ORDER BY `id` DESC";
+	$result = db_query($query);
+	return db_toarray($result);
+}
+
 ?>

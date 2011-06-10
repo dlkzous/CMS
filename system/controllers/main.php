@@ -9,8 +9,13 @@ function main_construct(){
 	}
 }
 
-function main_index(){
+function main_index($category = false){
 	global $data;
+	load_model('article');
+	$data['articles'] = model_exec('global', 'get_articles');
+	foreach($data['articles'] as $key=>$art){
+		$data['articles'][$key]['info'] = model_exec('article', 'getDetails', array($art['revision_id']));
+	}
 	load_view('main', $data);
 }
 

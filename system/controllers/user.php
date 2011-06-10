@@ -32,19 +32,18 @@ function user_login(){
 
 function user_register(){
 	load_helper('form');
-	
-	if(!form_submitted()){
-		load_view("register");
-	}else{
-		load_model('user');
-		
+	$data = array();
+	if(form_submitted()){
+		load_model('user');	
 		$data['name'] = $_POST['name'];
 		$data['email'] = $_POST['email'];
 		$data['username'] = $_POST['username'];
 		$data['password'] = $_POST['password'];
 		$data['location'] = $_POST['location'];
 		model_exec('user', 'register', $data);
+		$data['notice'] = "Registration complete!, Please login to continue";
 	}
+	load_view("login", $data);
 }
 
 function user_logout(){

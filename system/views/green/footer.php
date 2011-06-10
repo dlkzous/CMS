@@ -1,7 +1,7 @@
 				<div class="clear"></div>
 			<div id="footer">
 				<div class="line"></div>
-				Copyright "The Journal" 2011-2012
+				<?= model_exec('global', 'get_setting', array('copyright')) ?>
 			</div>
 		</div>
 	</body>

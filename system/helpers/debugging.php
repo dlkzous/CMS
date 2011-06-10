@@ -24,4 +24,15 @@ function debug($item){
 	exit();
 }
 
+//truncate text to limited characters
+function truncate($text, $limit) {
+      if (strlen($text) > $limit) {
+          $words = str_word_count($text, 2);
+          $pos = array_keys($words);
+          $text = substr($text, 0, $pos[$limit]) . '...';
+      }
+      return $text;
+}
+
+
 ?>
